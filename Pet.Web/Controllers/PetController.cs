@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Pet.Web.Controllers
 {
+    [Authorize]
     public class PetController : Controller
     {
         private static List<Models.Pet> petsCache = new List<Models.Pet>()
@@ -47,6 +48,13 @@ namespace Pet.Web.Controllers
         public ActionResult Details(Guid id)
         {
             return View(petsCache.First(x => x.ID == id));
+        }
+
+
+        public ActionResult Delete(Guid id)
+        {
+            petsCache.Remove(petsCache.First(x => x.ID == id));
+            return RedirectToAction("List");
         }
     }
 }
