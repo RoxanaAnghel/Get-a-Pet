@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Pet.Web.Models;
+using Pet.Database;
 
 namespace Pet.Web.Controllers
 {
