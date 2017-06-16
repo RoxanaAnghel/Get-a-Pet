@@ -30,9 +30,9 @@ namespace Pet.Database
             dbContext = new PetDataContext();
         }
 
-        public Task SaveAsync()
+        public void Save()
         {
-            throw new NotImplementedException();
+            dbContext.SaveChanges();
         }
 
         public void Dispose()

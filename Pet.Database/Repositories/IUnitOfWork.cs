@@ -10,6 +10,6 @@ namespace Pet.Database
     public interface IUnitOfWork:IDisposable
     {
         IPetRepository PetRepository { get;}
-        Task SaveAsync();
+        void Save();
     }
 }

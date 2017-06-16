@@ -11,7 +11,8 @@ namespace Pet.Services.Pet
         IEnumerable<Database.Entities.Pet> GetAllPets();
         void Delete(Guid id);
         void Update(Database.Entities.Pet pet);
-        void GetPet(Guid id);
+        Database.Entities.Pet GetPet(Guid id);
+        void Create(Database.Entities.Pet pet);
 
 
     }

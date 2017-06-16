@@ -23,15 +23,20 @@ namespace Pet.Database.Repositories
             this.unitOfWork = unitOfWork;
         }
 
-        public System.Collections.Generic.IEnumerable<TModel> GetAll1()
-        {
-            var query = from t in dbSet select t;
-            return query;
-        }
+        //public System.Collections.Generic.IEnumerable<TModel> GetAll1()
+        //{
+        //    var query = from t in dbSet select t;
+        //    return query;
+        //}
 
-        public async Task<TModel> GetByIDAsync(int? id)
+        //public async Task<TModel> GetByIDAsync(Guid id)
+        //{
+        //    return await dbSet.FindAsync(id);
+        //}
+
+        public TModel GetByID(Guid id)
         {
-            return await dbSet.FindAsync(id);
+            return dbSet.Find(id);
         }
 
         public void Create(TModel model)

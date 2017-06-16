@@ -17,9 +17,23 @@ namespace Pet.Services.Pet
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
+        public void Create(Database.Entities.Pet pet)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                unitOfWork.PetRepository.Create(pet);
+                unitOfWork.Save();
+            }
+        }
+
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                Database.Entities.Pet pet = GetPet(id);
+                unitOfWork.PetRepository.Delete(pet);
+                unitOfWork.Save();
+            }
         }
 
         public IEnumerable<Database.Entities.Pet> GetAllPets()
@@ -30,16 +44,29 @@ namespace Pet.Services.Pet
             }
         }
 
-
-
-        public void GetPet(Guid id)
+        public Database.Entities.Pet GetPet(Guid id)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                return unitOfWork.PetRepository.GetByID(id);
+            }
         }
 
         public void Update(Database.Entities.Pet pet)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                unitOfWork.PetRepository.Update(pet);
+                unitOfWork.Save();
+            }
+        }
+
+        Database.Entities.Pet IPetService.GetPet(Guid id)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                return unitOfWork.PetRepository.GetByID(id);
+            }
         }
     }
 }

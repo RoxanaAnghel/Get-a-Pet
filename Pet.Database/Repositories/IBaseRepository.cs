@@ -8,8 +8,7 @@ namespace Pet.Database.Repositories
 {
     public interface IBaseRepository<TModel>
     {
-        IEnumerable<TModel> GetAll1();
-        Task<TModel> GetByIDAsync(int? id);
+        TModel GetByID(Guid id);
         TModel[] GetAll();
         void Create(TModel model);
         void Update(TModel model);
