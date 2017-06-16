@@ -22,10 +22,10 @@ namespace Pet.Web.Controllers
         public ActionResult Index()
         {
             bool isAuthenticated = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            if (isAuthenticated)
-            {
-                return RedirectToAction("List", "Pet");
-            }
+            //if (isAuthenticated)
+            //{
+            //    return RedirectToAction("List", "Pet");
+            //}
             return View(petService.GetAllPets());
         }
 
