@@ -13,6 +13,7 @@ namespace Pet.Services.Pet
         void Update(Database.Entities.Pet pet);
         Database.Entities.Pet GetPet(Guid id);
         void Create(Database.Entities.Pet pet);
+        Database.Entities.Pet[] GetPetsForOwner(Guid id);
 
 
     }

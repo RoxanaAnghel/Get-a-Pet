@@ -1,4 +1,5 @@
-﻿using Pet.Database;
+﻿using Microsoft.AspNet.Identity;
+using Pet.Database;
 using Pet.Services.Pet;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,13 @@ namespace Pet.Web.Controllers
     {
         private static UnitOfWorkFactory unitOfWorkFactory;
         private static IPetService petService;
-        private static IEnumerable<Pet.Database.Entities.Pet> petsCache;
 
         public PetController()
         {
             unitOfWorkFactory = new UnitOfWorkFactory(new Config());
             petService = new PetService(unitOfWorkFactory);
-            petsCache = petService.GetAllPets();
+            
+            //CurrentUserId = new Guid(User.Identity.GetUserId());
         }
 
         // GET: Pet
@@ -32,7 +33,7 @@ namespace Pet.Web.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            return View(petService.GetAllPets());
+            return View(petService.GetPetsForOwner(new Guid(User.Identity.GetUserId())));
         }
 
         [HttpGet]
@@ -45,6 +46,8 @@ namespace Pet.Web.Controllers
         public ActionResult Create(Database.Entities.Pet pet)
         {
             pet.ID = Guid.NewGuid();
+            
+            pet.OwnerID = new Guid(User.Identity.GetUserId());
 
             petService.Create(pet);
 
@@ -74,7 +77,6 @@ namespace Pet.Web.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            //petsCache.Remove(petsCache.First(x => x.ID == id));
             petService.Delete(id);
             return RedirectToAction("List");
         }

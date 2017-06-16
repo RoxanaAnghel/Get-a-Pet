@@ -52,6 +52,14 @@ namespace Pet.Services.Pet
             }
         }
 
+        public Database.Entities.Pet[] GetPetsForOwner(Guid id)
+        {
+            using(IUnitOfWork unitOfwork = unitOfWorkFactory.Create())
+            {
+                return unitOfwork.PetRepository.getAllByOwner(id);
+            }
+        }
+
         public void Update(Database.Entities.Pet pet)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())

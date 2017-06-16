@@ -17,5 +17,10 @@ namespace Pet.Database.Repositories
         {
             return dbSet.ToArray();
         }
+
+        public Entities.Pet[] getAllByOwner(Guid id)
+        {
+            return dbSet.Where(p => p.OwnerID == id).ToArray();
+        }
     }
 }

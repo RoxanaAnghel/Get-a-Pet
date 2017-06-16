@@ -9,5 +9,6 @@ namespace Pet.Database.Repositories
     public interface IPetRepository:IBaseRepository<Entities.Pet>
     {
         Entities.Pet[] getAll();
+        Entities.Pet[] getAllByOwner(Guid id);
     }
 }
