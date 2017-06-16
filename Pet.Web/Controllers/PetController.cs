@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pet.Database;
+using Pet.Services.Pet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +11,18 @@ namespace Pet.Web.Controllers
     [Authorize]
     public class PetController : Controller
     {
-        private static List<Models.Pet> petsCache = new List<Models.Pet>()
+        private static UnitOfWorkFactory unitOfWorkFactory;
+        private static IPetService petService;
+
+        private static IEnumerable<Pet.Database.Entities.Pet> petsCache;
+
+        public PetController()
         {
-            new Models.Pet() { ID = Guid.NewGuid(), Location = "Location1", Name = "Name1", ImageUrl = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg" },
-            new Models.Pet() { ID = Guid.NewGuid(), Location = "Location2", Name = "Name2", ImageUrl = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg" },
-            new Models.Pet() { ID = Guid.NewGuid(), Location = "Location3", Name = "Name3", ImageUrl = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg" },
-        };
+            unitOfWorkFactory = new UnitOfWorkFactory(new Config());
+            petService = new PetService(unitOfWorkFactory);
+
+            petsCache = petService.GetAllPets();
+        }
 
         // GET: Pet
         public ActionResult Index()
@@ -39,7 +47,7 @@ namespace Pet.Web.Controllers
         {
             pet.ID = Guid.NewGuid();
 
-            petsCache.Add(pet);
+            petService.
 
             return RedirectToAction("List");
         }
@@ -53,7 +61,7 @@ namespace Pet.Web.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            petsCache.Remove(petsCache.First(x => x.ID == id));
+            //petsCache.Remove(petsCache.First(x => x.ID == id));
             return RedirectToAction("List");
         }
     }

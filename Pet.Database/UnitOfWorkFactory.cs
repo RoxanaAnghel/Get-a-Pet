@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pet.Database
 {
-    public class UnitOfWorkFactory
+    public class UnitOfWorkFactory:IUnitOfWorkFactory
     {
         private readonly IConfig config;
 

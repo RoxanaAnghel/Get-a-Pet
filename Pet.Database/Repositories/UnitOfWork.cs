@@ -37,7 +37,10 @@ namespace Pet.Database
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (dbContext != null)
+            {
+                dbContext.Dispose();
+            }
         }
 
         

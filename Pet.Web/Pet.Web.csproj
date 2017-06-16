@@ -213,6 +213,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -306,6 +307,10 @@
     <ProjectReference Include="..\Pet.Database\Pet.Database.csproj">
       <Project>{23e56ea8-d31b-4841-bdea-775ec4c78819}</Project>
       <Name>Pet.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pet.Services\Pet.Services.csproj">
+      <Project>{8eecc1d9-e833-4f76-ae70-95d0735838f6}</Project>
+      <Name>Pet.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
