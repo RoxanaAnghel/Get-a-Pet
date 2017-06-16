@@ -47,7 +47,7 @@ namespace Pet.Web.Controllers
         {
             pet.ID = Guid.NewGuid();
 
-            petService.
+            //petsCache.Add(pet);
 
             return RedirectToAction("List");
         }
