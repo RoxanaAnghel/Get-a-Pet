@@ -12,6 +12,19 @@ namespace Pet.Database
         private readonly PetDataContext dbContext;
 
         private IPetRepository petRepository;
+        private IUserDetailsRepository userDetailsRepository;
+
+        public IUserDetailsRepository UserDetailsRepository
+        {
+            get
+            {
+                if (userDetailsRepository == null)
+                {
+                    userDetailsRepository = new UserDetailsRepository(dbContext, this);
+                }
+                return userDetailsRepository;
+            }
+        }
 
         public IPetRepository PetRepository
         {

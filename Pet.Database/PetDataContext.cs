@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Pet.Database.Entities;
 
 namespace Pet.Database
 {
@@ -17,7 +18,8 @@ namespace Pet.Database
         {
         }
 
-        public DbSet<Pet.Database.Entities.Pet> Pets { get; set; }
+        public DbSet<Entities.Pet> Pets { get; set; }
+        public DbSet<UserDetails> UserDetails { get; set; }
 
         public static PetDataContext Create()
         {

@@ -10,6 +10,7 @@ namespace Pet.Database
     public interface IUnitOfWork:IDisposable
     {
         IPetRepository PetRepository { get;}
+        IUserDetailsRepository UserDetailsRepository { get; }
         void Save();
     }
 }

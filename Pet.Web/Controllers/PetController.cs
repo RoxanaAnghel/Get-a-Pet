@@ -39,7 +39,7 @@ namespace Pet.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new Models.Pet());
+            return View(new Database.Entities.Pet());
         }
 
         [HttpPost]

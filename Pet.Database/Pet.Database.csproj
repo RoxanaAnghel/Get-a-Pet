@@ -69,14 +69,20 @@
   <ItemGroup>
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\Pet.cs" />
+    <Compile Include="Entities\UserDetails.cs" />
     <Compile Include="IConfig.cs" />
     <Compile Include="IUnitOfWorkFactory.cs" />
     <Compile Include="Migrations\201706151319566_InitialCreate.cs" />
     <Compile Include="Migrations\201706151319566_InitialCreate.Designer.cs">
       <DependentUpon>201706151319566_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706161343378_AddUserDetails.cs" />
+    <Compile Include="Migrations\201706161343378_AddUserDetails.Designer.cs">
+      <DependentUpon>201706161343378_AddUserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
+    <Compile Include="Repositories\UserDetails\IUserDetailsRepository.cs" />
     <Compile Include="Repositories\Pet\IPetRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +90,7 @@
     <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\Pet\PetRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\UserDetails\UserDetailsRepository.cs" />
     <Compile Include="UnitOfWorkFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +100,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706151319566_InitialCreate.resx">
       <DependentUpon>201706151319566_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706161343378_AddUserDetails.resx">
+      <DependentUpon>201706161343378_AddUserDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
