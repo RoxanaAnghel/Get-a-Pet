@@ -49,7 +49,7 @@ namespace Pet.Web.Controllers
             {
                 userDetails.ID = new Guid(User.Identity.GetUserId());
                 userDetailsService.Create(userDetails);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             catch
             {
