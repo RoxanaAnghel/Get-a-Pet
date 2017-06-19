@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
+using Pet.Database;
 using Pet.Database.Entities;
+using Pet.Services.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,13 @@ namespace Pet.Web.Controllers
     public class MessageController : Controller
     {
 
+        private static UnitOfWorkFactory unitOfWorkFactory;
+        private static IMessageService messageService;
+
         public MessageController()
         {
-
+            unitOfWorkFactory = new UnitOfWorkFactory(new Config());
+            messageService = new MessageService(unitOfWorkFactory);
         }
 
         // GET: Message
@@ -22,76 +28,41 @@ namespace Pet.Web.Controllers
             return View();
         }
 
-        // GET: Message/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
+        public ActionResult List(Guid ownerId,Guid petId)
+        {
+            Message[] messeges = messageService.GetMessegesBetwenForPet(ownerId, new Guid(User.Identity.GetUserId()), petId);
+            return View(messeges);
+        }
+        
         // GET: Message/Create
         public ActionResult Create(Guid ownerId,Guid petId)
         {
-            return View();
+            Message message = new Message();
+            //message.ID = Guid.NewGuid();
+            message.PetID = petId;
+            message.To = ownerId;
+            message.From =new Guid(User.Identity.GetUserId());
+            return View(message);
         }
 
         // POST: Message/Create
-        //[HttpPost]
-        //public ActionResult Create(Message message)
-        //{
-        //    try
-        //    {
-        //        message.ID = new Guid();
-        //        message.From=new Guid(User.Identity.GetUserId());
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: Message/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: Message/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: Message/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: Message/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpPost]
+        public ActionResult Create(Message message)
+        {
+            try
+            {
+                message.ID = Guid.NewGuid();
+                message.SentDate = DateTime.Now;
+                message.From = new Guid(User.Identity.GetUserId());
+                
+                messageService.SendMessage(message);
+                
+                return RedirectToAction("List",new { ownerId=message.To,petID=message.PetID});
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

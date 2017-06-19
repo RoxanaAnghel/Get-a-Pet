@@ -17,6 +17,13 @@ namespace Pet.Services.Messages
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
+        public Message[] GetAll()
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                return unitOfWork.MessageRepository.GetAll();
+            }
+        }
 
         public Message[] GetMesagesBetween(Guid user1, Guid user2)
         {
@@ -26,11 +33,23 @@ namespace Pet.Services.Messages
             }
         }
 
+        public Message[] GetMessegesBetwenForPet(Guid to, Guid from, Guid pet)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                Message[] m1=unitOfWork.MessageRepository.GetMessegesBetweenUsersForPet(to, from, pet);
+                Message[] m2 = unitOfWork.MessageRepository.GetMessegesBetweenUsersForPet(from, to, pet);
+                Message[] r = m1.Concat(m2).OrderBy(m => m.SentDate).ToArray();
+                return r;
+            }
+        }
+
         public void SendMessage(Message message)
         {
             using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
                 unitOfWork.MessageRepository.Create(message);
+                unitOfWork.Save();
             }
         }
     }

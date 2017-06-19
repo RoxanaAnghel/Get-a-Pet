@@ -8,6 +8,8 @@ namespace Pet.Database.Entities
 {
     public class Message:IEntity
     {
+        public string Text { get; set; }
+
         public Guid ID { get; set; }
 
         public Guid From { get; set; }

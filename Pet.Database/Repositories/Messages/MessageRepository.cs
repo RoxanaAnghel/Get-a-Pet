@@ -16,12 +16,17 @@ namespace Pet.Database.Repositories.Messages
 
         public Message[] GetMessagesBetweenUsers(Guid user1, Guid user2)
         {
-            return dbSet.Where(m => (m.From == user1 && m.To==user2)).OrderBy(m => m.SentDate).ToArray();
+            return dbSet.Where(m => (m.From == user1 && m.To == user2)).OrderBy(m => m.SentDate).ToArray();
         }
 
         public Message[] GetMessagesForUser(Guid ForUser)
         {
-            return dbSet.Where(m => m.To == ForUser).OrderBy(m=>m.SentDate).ToArray();
+            return dbSet.Where(m => m.To == ForUser).OrderBy(m => m.SentDate).ToArray();
+        }
+
+        public Message[] GetMessegesBetweenUsersForPet(Guid to, Guid from, Guid pet)
+        {
+            return dbSet.Where(m => (m.From == from && m.To == to && m.PetID == pet)).OrderBy(m => m.SentDate).ToArray();
         }
     }
 }

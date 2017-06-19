@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201706191123308_AddPetIDToMessages.Designer.cs">
       <DependentUpon>201706191123308_AddPetIDToMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706191506016_Add text to Message.cs" />
+    <Compile Include="Migrations\201706191506016_Add text to Message.Designer.cs">
+      <DependentUpon>201706191506016_Add text to Message.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
     <Compile Include="Repositories\Messages\IMessageRepository.cs" />
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706191123308_AddPetIDToMessages.resx">
       <DependentUpon>201706191123308_AddPetIDToMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191506016_Add text to Message.resx">
+      <DependentUpon>201706191506016_Add text to Message.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
