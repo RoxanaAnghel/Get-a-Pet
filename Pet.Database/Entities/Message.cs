@@ -17,5 +17,9 @@ namespace Pet.Database.Entities
         public DateTime Sent { get; set; }
 
         public bool Read { get; set; }
+
+
     }
 }
+
+

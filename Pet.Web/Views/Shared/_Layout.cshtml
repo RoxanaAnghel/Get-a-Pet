@@ -25,6 +25,7 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("My Pets", "List", "Pet")</li>
+                        <li>@Html.ActionLink("MyProfile","Details","UserDetails")</li>
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

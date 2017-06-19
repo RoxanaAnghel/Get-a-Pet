@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Pet.cs" />
     <Compile Include="Entities\UserDetails.cs" />
     <Compile Include="IConfig.cs" />
@@ -80,8 +81,14 @@
     <Compile Include="Migrations\201706161343378_AddUserDetails.Designer.cs">
       <DependentUpon>201706161343378_AddUserDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706190903261_AddMessages.cs" />
+    <Compile Include="Migrations\201706190903261_AddMessages.Designer.cs">
+      <DependentUpon>201706190903261_AddMessages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
+    <Compile Include="Repositories\Messages\IMessageRepository.cs" />
+    <Compile Include="Repositories\Messages\MessageRepository.cs" />
     <Compile Include="Repositories\UserDetails\IUserDetailsRepository.cs" />
     <Compile Include="Repositories\Pet\IPetRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
@@ -103,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706161343378_AddUserDetails.resx">
       <DependentUpon>201706161343378_AddUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706190903261_AddMessages.resx">
+      <DependentUpon>201706190903261_AddMessages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

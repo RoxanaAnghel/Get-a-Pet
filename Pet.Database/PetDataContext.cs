@@ -20,6 +20,7 @@ namespace Pet.Database
 
         public DbSet<Entities.Pet> Pets { get; set; }
         public DbSet<UserDetails> UserDetails { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public static PetDataContext Create()
         {

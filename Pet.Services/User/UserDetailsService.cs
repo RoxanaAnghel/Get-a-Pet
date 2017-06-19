@@ -39,6 +39,7 @@ namespace Pet.Services.User
             using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
                 unitOfWork.UserDetailsRepository.Update(userDetails);
+                unitOfWork.Save();
             }
         }
     }

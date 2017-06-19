@@ -26,13 +26,17 @@ namespace Pet.Web.Controllers
         // GET: UserDetails
         public ActionResult Index()
         {
-            return View();
+            Guid userID = new Guid(User.Identity.GetUserId());
+            UserDetails userDetails = userDetailsService.GetUserDetails(userID);
+            return View(userDetails);
         }
 
         // GET: UserDetails/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
-            return View();
+            Guid userID = new Guid(User.Identity.GetUserId());
+            UserDetails userDetails = userDetailsService.GetUserDetails(userID);
+            return View(userDetails);
         }
 
         // GET: UserDetails/Create
@@ -58,20 +62,22 @@ namespace Pet.Web.Controllers
         }
 
         // GET: UserDetails/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            return View();
+            Guid userID = new Guid(User.Identity.GetUserId());
+            UserDetails userDetails = userDetailsService.GetUserDetails(userID);
+            return View(userDetails);
         }
 
         // POST: UserDetails/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(UserDetails userDetails)
         {
             try
             {
-                // TODO: Add update logic here
+                userDetailsService.Update(userDetails);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             catch
             {
