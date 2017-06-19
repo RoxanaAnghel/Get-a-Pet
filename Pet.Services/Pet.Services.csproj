@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages\IMessageService.cs" />
+    <Compile Include="Messages\MessageService.cs" />
     <Compile Include="Pet\IPetService.cs" />
     <Compile Include="Pet\PetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

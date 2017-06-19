@@ -14,11 +14,11 @@ namespace Pet.Database.Entities
 
         public Guid To { get; set; }
 
-        public DateTime Sent { get; set; }
+        public Guid PetID { get; set; }
+
+        public DateTime SentDate { get; set; }
 
         public bool Read { get; set; }
-
-
     }
 }
 

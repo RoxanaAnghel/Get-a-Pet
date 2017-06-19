@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Pet.Web.Models;
 using Pet.Database;
+using Pet.Services.User;
+using Pet.Database.Entities;
 
 namespace Pet.Web.Controllers
 {
@@ -18,6 +20,9 @@ namespace Pet.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        private static UnitOfWorkFactory unitOfWorkFactory;
+        private static IUserDetailsService userDetailsService;
 
         public AccountController()
         {
@@ -157,12 +162,18 @@ namespace Pet.Web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    unitOfWorkFactory = new UnitOfWorkFactory(new Config());
+                    userDetailsService = new UserDetailsService(unitOfWorkFactory);
+
+                    UserDetails userDetails= new UserDetails() { ID = new Guid(User.Identity.GetUserId()) };
+                    userDetailsService.Create(userDetails);
 
                     return RedirectToAction("Create", "UserDetails");
                 }

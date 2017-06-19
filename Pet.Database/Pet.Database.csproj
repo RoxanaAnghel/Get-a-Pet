@@ -85,6 +85,14 @@
     <Compile Include="Migrations\201706190903261_AddMessages.Designer.cs">
       <DependentUpon>201706190903261_AddMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706191022019_RenameFieldsInMessage.cs" />
+    <Compile Include="Migrations\201706191022019_RenameFieldsInMessage.Designer.cs">
+      <DependentUpon>201706191022019_RenameFieldsInMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706191123308_AddPetIDToMessages.cs" />
+    <Compile Include="Migrations\201706191123308_AddPetIDToMessages.Designer.cs">
+      <DependentUpon>201706191123308_AddPetIDToMessages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
     <Compile Include="Repositories\Messages\IMessageRepository.cs" />
@@ -113,6 +121,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706190903261_AddMessages.resx">
       <DependentUpon>201706190903261_AddMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191022019_RenameFieldsInMessage.resx">
+      <DependentUpon>201706191022019_RenameFieldsInMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191123308_AddPetIDToMessages.resx">
+      <DependentUpon>201706191123308_AddPetIDToMessages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

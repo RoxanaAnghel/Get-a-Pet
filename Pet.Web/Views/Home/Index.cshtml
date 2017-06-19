@@ -28,6 +28,13 @@
             <td>
                 <img src="@item.ImageUrl" />
             </td>
+            @if (Request.IsAuthenticated)
+            {
+                <td>
+                    @Html.ActionLink("Sent Message", "Create", "Message", new { ownerId = item.OwnerID , petId=item.ID},null);
+                </td>
+            }
+
         </tr>
     }
 </table>

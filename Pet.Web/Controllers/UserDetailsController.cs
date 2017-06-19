@@ -51,8 +51,8 @@ namespace Pet.Web.Controllers
         {
             try
             {
-                userDetails.ID = new Guid(User.Identity.GetUserId());
-                userDetailsService.Create(userDetails);
+                //userDetails.ID = new Guid(User.Identity.GetUserId());
+                userDetailsService.Update(userDetails);
                 return RedirectToAction("Index","Home");
             }
             catch

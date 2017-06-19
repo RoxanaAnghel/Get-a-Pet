@@ -9,6 +9,6 @@ namespace Pet.Database.Repositories.Messages
 {
     public interface IMessageRepository:IBaseRepository<Message>
     {
-        Message[] GetMessagesForUser(Guid ForUser);
+        Message[] GetMessagesBetweenUsers(Guid user1,Guid user2);
     }
 }
