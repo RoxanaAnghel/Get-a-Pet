@@ -172,7 +172,7 @@ namespace Pet.Web.Controllers
                     unitOfWorkFactory = new UnitOfWorkFactory(new Config());
                     userDetailsService = new UserDetailsService(unitOfWorkFactory);
 
-                    UserDetails userDetails= new UserDetails() { ID = new Guid(User.Identity.GetUserId()) };
+                    UserDetails userDetails= new UserDetails() { ID = new Guid(user.Id)};
                     userDetailsService.Create(userDetails);
 
                     return RedirectToAction("Create", "UserDetails");
