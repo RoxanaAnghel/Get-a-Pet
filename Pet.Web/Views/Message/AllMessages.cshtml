@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<Pet.Database.Entities.Message>
 
 @{
-    ViewBag.Title = "Chat";
+    ViewBag.Title = "AllMessages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List</h2>
+<h2>AllMessages</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>

@@ -27,6 +27,14 @@ namespace Pet.Web.Controllers
         {
             return View();
         }
+        public ActionResult AllMessages()
+        {
+            /*
+             * currently shows all messages as one chat
+             */
+            Message[] allMessages = messageService.GetAllMessages(new Guid(User.Identity.GetUserId()));
+            return View(allMessages);
+        }
 
         public ActionResult List(Guid ownerId,Guid petId)
         {
@@ -39,9 +47,9 @@ namespace Pet.Web.Controllers
         {
             Message message = new Message();
             //message.ID = Guid.NewGuid();
-            message.PetID = petId;
-            message.To = ownerId;
-            message.From =new Guid(User.Identity.GetUserId());
+            message.PetId = petId;
+            message.ToId = ownerId;
+            message.FromId = new Guid(User.Identity.GetUserId());
             return View(message);
         }
 
@@ -53,11 +61,11 @@ namespace Pet.Web.Controllers
             {
                 message.ID = Guid.NewGuid();
                 message.SentDate = DateTime.Now;
-                message.From = new Guid(User.Identity.GetUserId());
+                message.FromId = new Guid(User.Identity.GetUserId());
                 
                 messageService.SendMessage(message);
                 
-                return RedirectToAction("List",new { ownerId=message.To,petID=message.PetID});
+                return RedirectToAction("List",new { ownerId=message.ToId, petID=message.PetId });
             }
             catch
             {

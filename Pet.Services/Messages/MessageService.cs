@@ -25,6 +25,19 @@ namespace Pet.Services.Messages
             }
         }
 
+        public Message[] GetAllMessages(Guid userId)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                return unitOfWork.MessageRepository.GetAllMessagesForUser(userId);
+            }
+        }
+
+        public List<Message[]> GetAllMessagesForUser(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Message[] GetMesagesBetween(Guid user1, Guid user2)
         {
             using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())

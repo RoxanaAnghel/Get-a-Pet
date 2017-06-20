@@ -11,5 +11,6 @@ namespace Pet.Database.Repositories.Messages
     {
         Message[] GetMessagesBetweenUsers(Guid user1,Guid user2);
         Message[] GetMessegesBetweenUsersForPet(Guid to, Guid from, Guid pet);
+        Message[] GetAllMessagesForUser(Guid userId);
     }
 }

@@ -297,6 +297,7 @@
     <Content Include="Views\UserDetails\Edit.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\List.cshtml" />
+    <Content Include="Views\Message\AllMessages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

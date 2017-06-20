@@ -13,5 +13,7 @@ namespace Pet.Services.Messages
         void SendMessage(Message message);
         Message[] GetAll();
         Message[] GetMessegesBetwenForPet(Guid to, Guid from, Guid pet);
+        List<Message[]> GetAllMessagesForUser(Guid userId);
+        Message[] GetAllMessages(Guid userId);
     }
 }
