@@ -289,15 +289,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Pet\List.cshtml" />
-    <Content Include="Views\Pet\Details.cshtml" />
-    <Content Include="Views\Pet\Edit.cshtml" />
-    <Content Include="Views\Pet\Create.cshtml" />
     <Content Include="Views\UserDetails\Create.cshtml" />
     <Content Include="Views\UserDetails\Details.cshtml" />
     <Content Include="Views\UserDetails\Edit.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\List.cshtml" />
     <Content Include="Views\Message\AllMessages.cshtml" />
+    <Content Include="Views\Pet\Create.cshtml" />
+    <Content Include="Views\Pet\Details.cshtml" />
+    <Content Include="Views\Pet\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
