@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Chat.cs" />
+    <Compile Include="Entities\Conversation.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Pet.cs" />
@@ -106,8 +107,18 @@
     <Compile Include="Migrations\201706201035352_UpdatePet.Designer.cs">
       <DependentUpon>201706201035352_UpdatePet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706221703543_AddConversationUpdateMessage.cs" />
+    <Compile Include="Migrations\201706221703543_AddConversationUpdateMessage.Designer.cs">
+      <DependentUpon>201706221703543_AddConversationUpdateMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221706427_UpdateMessage.cs" />
+    <Compile Include="Migrations\201706221706427_UpdateMessage.Designer.cs">
+      <DependentUpon>201706221706427_UpdateMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
+    <Compile Include="Repositories\Conversations\ConversationRepository.cs" />
+    <Compile Include="Repositories\Conversations\IConversationRepository.cs" />
     <Compile Include="Repositories\Messages\IMessageRepository.cs" />
     <Compile Include="Repositories\Messages\MessageRepository.cs" />
     <Compile Include="Repositories\UserDetails\IUserDetailsRepository.cs" />
@@ -149,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706201035352_UpdatePet.resx">
       <DependentUpon>201706201035352_UpdatePet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221703543_AddConversationUpdateMessage.resx">
+      <DependentUpon>201706221703543_AddConversationUpdateMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221706427_UpdateMessage.resx">
+      <DependentUpon>201706221706427_UpdateMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

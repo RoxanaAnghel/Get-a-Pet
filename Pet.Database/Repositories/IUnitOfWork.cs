@@ -1,4 +1,5 @@
 ﻿using Pet.Database.Repositories;
+using Pet.Database.Repositories.Conversations;
 using Pet.Database.Repositories.Messages;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Pet.Database
         IPetRepository PetRepository { get;}
         IUserDetailsRepository UserDetailsRepository { get; }
         IMessageRepository MessageRepository { get;}
+        IConversationRepository ConversationRepository { get; }
         void Save();
     }
 }

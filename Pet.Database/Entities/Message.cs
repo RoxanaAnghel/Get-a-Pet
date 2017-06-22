@@ -8,15 +8,11 @@ namespace Pet.Database.Entities
 {
     public class Message:IEntity
     {
-        public string Text { get; set; }
-
         public Guid ID { get; set; }
 
-        public Guid FromId { get; set; }
+        public Guid ConversationId { get; set; }
 
-        public Guid ToId { get; set; }
-
-        public Guid PetId { get; set; }
+        public string Text { get; set; }
 
         public DateTime SentDate { get; set; }
 

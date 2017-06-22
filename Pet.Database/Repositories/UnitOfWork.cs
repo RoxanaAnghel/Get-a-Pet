@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pet.Database.Repositories.Messages;
+using Pet.Database.Repositories.Conversations;
 
 namespace Pet.Database
 {
@@ -15,6 +16,7 @@ namespace Pet.Database
         private IPetRepository petRepository;
         private IUserDetailsRepository userDetailsRepository;
         private IMessageRepository messageRepository;
+        private IConversationRepository conversationRepository;
 
         public IUserDetailsRepository UserDetailsRepository
         {
@@ -49,6 +51,18 @@ namespace Pet.Database
                     messageRepository = new MessageRepository(dbContext, this);
                 }
                 return messageRepository;
+            }
+        }
+
+        public IConversationRepository ConversationRepository
+        {
+            get
+            {
+                if (conversationRepository==null)
+                {
+                    conversationRepository = new ConversationRepository(dbContext, this);
+                }
+                return conversationRepository;
             }
         }
 

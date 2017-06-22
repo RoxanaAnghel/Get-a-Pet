@@ -45,7 +45,15 @@ namespace Pet.Services.Messages
                 return unitOfWork.MessageRepository.GetMessagesBetweenUsers(user1, user2);
             }
         }
-
+        /////////
+        public Message[] GetMesagesForConversation(Guid id)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                return unitOfWork.MessageRepository.GetAllForConversation(id);
+            }
+        }
+        /////////
         public Message[] GetMessegesBetwenForPet(Guid to, Guid from, Guid pet)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())

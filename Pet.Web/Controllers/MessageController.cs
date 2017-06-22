@@ -46,10 +46,10 @@ namespace Pet.Web.Controllers
         public ActionResult Create(Guid ownerId,Guid petId)
         {
             Message message = new Message();
-            //message.ID = Guid.NewGuid();
-            message.PetId = petId;
-            message.ToId = ownerId;
-            message.FromId = new Guid(User.Identity.GetUserId());
+            message.ID = Guid.NewGuid();
+            //message.PetId = petId;
+            //message.ToId = ownerId;
+           // message.FromId = new Guid(User.Identity.GetUserId());
             return View(message);
         }
 
@@ -61,11 +61,11 @@ namespace Pet.Web.Controllers
             {
                 message.ID = Guid.NewGuid();
                 message.SentDate = DateTime.Now;
-                message.FromId = new Guid(User.Identity.GetUserId());
+                //message.FromId = new Guid(User.Identity.GetUserId());
                 
                 messageService.SendMessage(message);
-                
-                return RedirectToAction("List",new { ownerId=message.ToId, petID=message.PetId });
+
+                return RedirectToAction("List");//,//new { ownerId=message.ToId, petID=message.PetId });
             }
             catch
             {

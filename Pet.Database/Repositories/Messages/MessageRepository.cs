@@ -14,24 +14,44 @@ namespace Pet.Database.Repositories.Messages
         {
         }
 
+        public Message[] GetAllForConversation(Guid conversationId)
+        {
+            return dbSet.Where(m => m.ConversationId == conversationId).ToArray();
+        }
+
         public Message[] GetAllMessagesForUser(Guid userId)
         {
-            return dbSet.Where(m => m.FromId == userId || m.ToId == userId).OrderBy(m => m.SentDate).ToArray();
+            throw new NotImplementedException();
         }
 
         public Message[] GetMessagesBetweenUsers(Guid user1, Guid user2)
         {
-            return dbSet.Where(m => (m.FromId == user1 && m.ToId == user2)).OrderBy(m => m.SentDate).ToArray();
-        }
-
-        public Message[] GetMessagesForUser(Guid ForUser)
-        {
-            return dbSet.Where(m => m.ToId == ForUser).OrderBy(m => m.SentDate).ToArray();
+            throw new NotImplementedException();
         }
 
         public Message[] GetMessegesBetweenUsersForPet(Guid to, Guid from, Guid pet)
         {
-            return dbSet.Where(m => (m.FromId == from && m.ToId == to && m.PetId == pet)).OrderBy(m => m.SentDate).ToArray();
+            throw new NotImplementedException();
         }
+
+        //public Message[] GetAllMessagesForUser(Guid userId)
+        //{
+        //    return dbSet.Where(m => m.FromId == userId || m.ToId == userId).OrderBy(m => m.SentDate).ToArray();
+        //}
+
+        //public Message[] GetMessagesBetweenUsers(Guid user1, Guid user2)
+        //{
+        //    return dbSet.Where(m => (m.FromId == user1 && m.ToId == user2)).OrderBy(m => m.SentDate).ToArray();
+        //}
+
+        //public Message[] GetMessagesForUser(Guid ForUser)
+        //{
+        //    return dbSet.Where(m => m.ToId == ForUser).OrderBy(m => m.SentDate).ToArray();
+        //}
+
+        //public Message[] GetMessegesBetweenUsersForPet(Guid to, Guid from, Guid pet)
+        //{
+        //    return dbSet.Where(m => (m.FromId == from && m.ToId == to && m.PetId == pet)).OrderBy(m => m.SentDate).ToArray();
+        //}
     }
 }

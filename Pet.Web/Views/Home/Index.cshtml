@@ -31,7 +31,7 @@
             @if (Request.IsAuthenticated)
             {
                 <td>
-                    @Html.ActionLink("Sent Message", "Create", "Message", new { ownerId = item.OwnerID , petId=item.ID},null);
+                    @Html.ActionLink("Sent Message", "GetConversation", "Conversation", new { ownerId = item.OwnerID , petId=item.ID},null);
                 </td>
             }
 
