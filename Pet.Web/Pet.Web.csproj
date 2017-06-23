@@ -216,6 +216,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ConversationController.cs" />
+    <Compile Include="Controllers\GetAPetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -234,6 +235,7 @@
   <ItemGroup>
     <Content Include="Content\angular-material\angular-material.css" />
     <Content Include="Content\angular-material\angular-material.min.css" />
+    <Content Include="Content\angular-material\bootstrap.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\mdl-v1.1.2\material.css" />
@@ -322,6 +324,7 @@
     <Content Include="Views\Conversation\Conversations.cshtml" />
     <Content Include="Views\Conversation\GetConversation.cshtml" />
     <Content Include="Views\Conversation\GetMessages.cshtml" />
+    <Content Include="Views\GetAPet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,6 +26,60 @@ namespace Pet.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            RegisterBundles_GetAPet(bundles);
+        }
+
+        public static void RegisterBundles_GetAPet(BundleCollection bundles)
+        {
+            BundleTable.EnableOptimizations = false;
+
+            IBundleTransform[] jsTransforms = new IBundleTransform[0];
+            IBundleTransform[] cssTransforms = new IBundleTransform[0];
+
+            Bundle angularMaterialBundle = new Bundle("~/angular-material", cssTransforms);
+            angularMaterialBundle.Include("~/Content/angular-material/angular-material.css");
+            angularMaterialBundle.Include("~/Content/angular-material/bootstrap.css");
+            bundles.Add(angularMaterialBundle);
+
+            Bundle materialLiteBundle = new Bundle("~/Content/mdl", cssTransforms);
+            materialLiteBundle.Include("~/Content/mdl-v1.1.2/material.css");
+            bundles.Add(materialLiteBundle);
+
+            Bundle angularBundle = new Bundle("~/angular", jsTransforms);
+            angularBundle.Include("~/Scripts/angular/angular.js");
+            angularBundle.Include("~/Scripts/angular/angular-aria.js");
+            angularBundle.Include("~/Scripts/angular/angular-animate.js");
+            angularBundle.Include("~/Scripts/angular/angular-material.js");
+            angularBundle.Include("~/Scripts/angular/angular-route.js");
+            angularBundle.Include("~/Content/mdl-v1.1.2/material.js");
+            bundles.Add(angularBundle);
+
+            //    Bundle appModuleBundle = new Bundle("~/module", jsTransforms);
+            //    appModuleBundle.Include("~/app/app.module.js");
+            //    bundles.Add(appModuleBundle);
+
+            //    Bundle controllerBundle = new Bundle("~/AngularControllers", jsTransforms);
+            //    controllerBundle.Include("~/app/mainbar/mainbar.controller.js");
+            //    controllerBundle.Include("~/app/ckeditor/ck-editor.directive.js");
+            //    controllerBundle.Include("~/app/tests/tests.controller.js");
+            //    controllerBundle.Include("~/app/questions/questions.controller.js");
+            //    controllerBundle.Include("~/app/questions/questions-edit.controller.js");
+            //    controllerBundle.Include("~/app/questions/questions-add.controller.js");
+            //    controllerBundle.Include("~/app/sections/sections.controller.js");
+            //    controllerBundle.Include("~/app/sections/section-save.controller.js");
+            //    controllerBundle.Include("~/app/admins/admins.controller.js");
+            //    controllerBundle.Include("~/app/admins/admin-save.controller.js");
+            //    bundles.Add(controllerBundle);
+
+            //    Bundle serviceBundle = new Bundle("~/AngularServices", jsTransforms);
+            //    serviceBundle.Include("~/app/common/services/guids.service.js");
+            //    serviceBundle.Include("~/app/common/services/httpService.service.js");
+            //    serviceBundle.Include("~/app/tests/tests.service.js");
+            //    serviceBundle.Include("~/app/questions/questions.service.js");
+            //    serviceBundle.Include("~/app/sections/sections.service.js");
+            //    serviceBundle.Include("~/app/admins/admins.service.js");
+            //    bundles.Add(serviceBundle);
         }
     }
 }
