@@ -25,6 +25,13 @@ namespace Pet.Web.Controllers
         }
 
 
+        public ActionResult SendMessage(Guid id)
+        {
+            Message m = new Message() { ID = Guid.NewGuid(), ConversationId = id, Text = "buna" };
+            messageService.SendMessage(m);
+            return RedirectToAction("GetMessages", new { id = id });
+        }
+
         // GET: Conversation
         public ActionResult Conversations()
         {
@@ -38,12 +45,14 @@ namespace Pet.Web.Controllers
             Guid currentUser = new Guid(User.Identity.GetUserId());
             Conversation conversation = conversationService.GetConversationBeetwen(currentUser, petId);
             Message[] messages = messageService.GetMesagesForConversation(conversation.ID);
+            ViewBag.ConversationId = conversation.ID;
             return View(messages);
         }
 
         public ActionResult GetMessages(Guid id)
         {
             Message[] messages = messageService.GetMesagesForConversation(id);
+            ViewBag.ConversationId = id;
             return View(messages);
         }
 

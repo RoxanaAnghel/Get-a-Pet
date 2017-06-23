@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Pet.Database.Entities.Message>
+ 
 
 @{
     ViewBag.Title = "GetConversation";
@@ -6,9 +7,9 @@
 }
 
 <h2>GetConversation</h2>
-
+<h2>@ViewBag.ConversationId</h2>
 <p>
-    @Html.ActionLink("SendMessage", "SendMessage")
+    @Html.ActionLink("SendMessage", "SendMessage",new { id=ViewBag.ConversationId})
 </p>
 <table class="table">
     <tr>

@@ -67,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Chat.cs" />
     <Compile Include="Entities\Conversation.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\Message.cs" />

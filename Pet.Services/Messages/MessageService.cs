@@ -69,6 +69,7 @@ namespace Pet.Services.Messages
         {
             using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
+                message.SentDate = DateTime.Now;
                 unitOfWork.MessageRepository.Create(message);
                 unitOfWork.Save();
             }
