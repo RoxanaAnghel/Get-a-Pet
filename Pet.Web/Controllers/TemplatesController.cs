@@ -8,5 +8,10 @@ namespace Pet.Web.Controllers
         {
             return PartialView("~/Views/Templates/Home.cshtml");
         }
+
+        public ActionResult MyPets()
+        {
+            return PartialView("~/Views/Templates/MyPets.cshtml");
+        }
     }
 }

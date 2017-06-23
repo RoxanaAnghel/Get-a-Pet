@@ -10,5 +10,8 @@ namespace Pet.Database.Repositories
     {
         Entities.Pet[] getAll();
         Entities.Pet[] getAllByOwner(Guid id);
+
+        Entities.Pet[] List(Guid? ownerId);
+
     }
 }

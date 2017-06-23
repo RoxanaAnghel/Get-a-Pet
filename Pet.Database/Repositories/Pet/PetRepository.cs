@@ -22,5 +22,15 @@ namespace Pet.Database.Repositories
         {
             return dbSet.Where(p => p.OwnerID == id).ToArray();
         }
+
+        public Entities.Pet[] List(Guid? ownerId)
+        {
+            IQueryable<Entities.Pet> petQuery = dbSet;
+
+            if (ownerId.HasValue)
+                petQuery = petQuery.Where(pet => pet.OwnerID == ownerId.Value);
+            
+            return petQuery.ToArray();
+        }
     }
 }

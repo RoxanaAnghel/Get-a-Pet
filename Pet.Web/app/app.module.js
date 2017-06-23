@@ -18,6 +18,11 @@
                     controller: "HomeController",
                     controllerAs: "homeController"
                 })
+                .when("/mypets", {
+                    templateUrl: window.location.origin + "/Templates/MyPets",
+                    controller: "MyPetsController",
+                    controllerAs: "myPetsController"
+                })
                 .otherwise({ redirectTo: "/home" });
         });
 })();

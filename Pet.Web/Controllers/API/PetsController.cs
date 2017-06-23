@@ -1,5 +1,6 @@
 ﻿using Pet.Database;
 using Pet.Services.Pet;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -19,10 +20,13 @@ namespace Pet.Web.Controllers.API
 
         [Route("")]
         [HttpGet]
-        public IHttpActionResult GetAllPets()
+        public IHttpActionResult GetAllPets(Guid? ownerId=null)
         {
-            Database.Entities.Pet[] pets = petService.GetAllPets().ToArray();
+
+            Database.Entities.Pet[] pets = petService.GetAllPets(ownerId).ToArray();
             return Ok(pets);
         }
+
+       
     }
 }

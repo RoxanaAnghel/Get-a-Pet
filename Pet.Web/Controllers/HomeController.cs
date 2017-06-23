@@ -26,7 +26,7 @@ namespace Pet.Web.Controllers
             //{
             //    return RedirectToAction("List", "Pet");
             //}
-            return View(petService.GetAllPets());
+            return View(petService.GetAllPets(null));
         }
 
         public ActionResult About()

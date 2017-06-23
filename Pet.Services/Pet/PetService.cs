@@ -36,11 +36,11 @@ namespace Pet.Services.Pet
             }
         }
 
-        public IEnumerable<Database.Entities.Pet> GetAllPets()
+        public IEnumerable<Database.Entities.Pet> GetAllPets(Guid? ownerId)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
-                return unitOfWork.PetRepository.GetAll();
+                return unitOfWork.PetRepository.List(ownerId);
             }
         }
 

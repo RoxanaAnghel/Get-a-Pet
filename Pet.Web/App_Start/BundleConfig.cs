@@ -62,6 +62,9 @@ namespace Pet.Web
             Bundle controllerBundle = new Bundle("~/AngularControllers", jsTransforms);
             controllerBundle.Include("~/app/home/home.controller.js");
             controllerBundle.Include("~/app/home/home.service.js");
+            controllerBundle.Include("~/app/user/user.service.js");
+            controllerBundle.Include("~/app/myPets/mypets.controller.js");
+            controllerBundle.Include("~/app/myPets/mypets.service.js");
             bundles.Add(controllerBundle);
         }
     }
