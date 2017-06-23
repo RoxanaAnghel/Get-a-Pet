@@ -27,5 +27,6 @@ namespace Pet.Database.Entities
 
         public string PetImagineUrl { get; set; }
 
-        public bool Status { get; set; }    }
+        public bool Status { get; set; }
+    }
 }
