@@ -232,17 +232,37 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-material\angular-material.css" />
+    <Content Include="Content\angular-material\angular-material.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.css" />
+    <Content Include="Content\mdl-v1.1.2\material.js" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular\angular-animate.js" />
+    <Content Include="Scripts\angular\angular-animate.min.js" />
+    <Content Include="Scripts\angular\angular-aria.js" />
+    <Content Include="Scripts\angular\angular-aria.min.js" />
+    <Content Include="Scripts\angular\angular-material.js" />
+    <Content Include="Scripts\angular\angular-material.min.js" />
+    <Content Include="Scripts\angular\angular-route.js" />
+    <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\angular\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\mdl-v1.1.2\bower.json" />
+    <Content Include="Content\mdl-v1.1.2\LICENSE" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js.map" />
+    <Content Include="Content\mdl-v1.1.2\package.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
