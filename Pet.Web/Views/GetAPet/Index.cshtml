@@ -4,8 +4,8 @@
 }
 
 @using Microsoft.AspNet.Identity
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html ng-app="getAPet">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,13 +45,15 @@
         <div ng-view>
 
         </div>
-        <hr />
-        <footer>
+       
+        <footer style="clear:both">
+            <hr />
             <p>&copy; @DateTime.Now.Year - Get a Pet</p>
         </footer>
     </div>
-
     @Scripts.Render("~/angular")
+    @Scripts.Render("~/module");
+    @Scripts.Render("~/AngularControllers");
 </body>
 </html>
 

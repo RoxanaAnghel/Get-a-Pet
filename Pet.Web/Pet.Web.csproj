@@ -215,12 +215,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\PetsController.cs" />
     <Compile Include="Controllers\ConversationController.cs" />
     <Compile Include="Controllers\GetAPetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PetController.cs" />
+    <Compile Include="Controllers\TemplatesController.cs" />
     <Compile Include="Controllers\UserDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +235,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.module.js" />
+    <Content Include="app\home\home.controller.js" />
+    <Content Include="app\home\home.service.js" />
     <Content Include="Content\angular-material\angular-material.css" />
     <Content Include="Content\angular-material\angular-material.min.css" />
     <Content Include="Content\angular-material\bootstrap.css" />
@@ -325,9 +330,11 @@
     <Content Include="Views\Conversation\GetConversation.cshtml" />
     <Content Include="Views\Conversation\GetMessages.cshtml" />
     <Content Include="Views\GetAPet\Index.cshtml" />
+    <Content Include="Views\Templates\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Template\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

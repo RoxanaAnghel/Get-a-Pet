@@ -55,31 +55,14 @@ namespace Pet.Web
             angularBundle.Include("~/Content/mdl-v1.1.2/material.js");
             bundles.Add(angularBundle);
 
-            //    Bundle appModuleBundle = new Bundle("~/module", jsTransforms);
-            //    appModuleBundle.Include("~/app/app.module.js");
-            //    bundles.Add(appModuleBundle);
+            Bundle appModuleBundle = new Bundle("~/module", jsTransforms);
+            appModuleBundle.Include("~/app/app.module.js");
+            bundles.Add(appModuleBundle);
 
-            //    Bundle controllerBundle = new Bundle("~/AngularControllers", jsTransforms);
-            //    controllerBundle.Include("~/app/mainbar/mainbar.controller.js");
-            //    controllerBundle.Include("~/app/ckeditor/ck-editor.directive.js");
-            //    controllerBundle.Include("~/app/tests/tests.controller.js");
-            //    controllerBundle.Include("~/app/questions/questions.controller.js");
-            //    controllerBundle.Include("~/app/questions/questions-edit.controller.js");
-            //    controllerBundle.Include("~/app/questions/questions-add.controller.js");
-            //    controllerBundle.Include("~/app/sections/sections.controller.js");
-            //    controllerBundle.Include("~/app/sections/section-save.controller.js");
-            //    controllerBundle.Include("~/app/admins/admins.controller.js");
-            //    controllerBundle.Include("~/app/admins/admin-save.controller.js");
-            //    bundles.Add(controllerBundle);
-
-            //    Bundle serviceBundle = new Bundle("~/AngularServices", jsTransforms);
-            //    serviceBundle.Include("~/app/common/services/guids.service.js");
-            //    serviceBundle.Include("~/app/common/services/httpService.service.js");
-            //    serviceBundle.Include("~/app/tests/tests.service.js");
-            //    serviceBundle.Include("~/app/questions/questions.service.js");
-            //    serviceBundle.Include("~/app/sections/sections.service.js");
-            //    serviceBundle.Include("~/app/admins/admins.service.js");
-            //    bundles.Add(serviceBundle);
+            Bundle controllerBundle = new Bundle("~/AngularControllers", jsTransforms);
+            controllerBundle.Include("~/app/home/home.controller.js");
+            controllerBundle.Include("~/app/home/home.service.js");
+            bundles.Add(controllerBundle);
         }
     }
 }
