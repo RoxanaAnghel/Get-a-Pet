@@ -33,6 +33,11 @@
                     controller: "PetEditController",
                     controllerAs: "petEditController"
                 })
+                .when("/profile", {
+                    templateUrl: window.location.origin + "/Templates/UserDetails",
+                    controller: "UserDetailsController",
+                    controllerAs:"userDetailsController"
+                })
                 .otherwise({ redirectTo: "/home" });
         });
 })();

@@ -243,6 +243,7 @@
     <Content Include="app\myPets\pet-edit.controller.js" />
     <Content Include="app\myPets\pet-save.controller.js" />
     <Content Include="app\user\user.service.js" />
+    <Content Include="app\user\userdetails.controller.js" />
     <Content Include="Content\angular-material\angular-material.css" />
     <Content Include="Content\angular-material\angular-material.min.css" />
     <Content Include="Content\angular-material\bootstrap.css" />
@@ -339,6 +340,7 @@
     <Content Include="Views\Templates\MyPets.cshtml" />
     <Content Include="Views\Templates\PetSave.cshtml" />
     <Content Include="Views\Templates\PetEdit.cshtml" />
+    <Content Include="Views\Templates\UserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

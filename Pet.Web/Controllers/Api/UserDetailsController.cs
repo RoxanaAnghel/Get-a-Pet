@@ -33,5 +33,16 @@ namespace Pet.Web.Controllers.Api
             }
             return Ok(0);
         }
+
+        [Route("details")]
+        [HttpGet]
+        public IHttpActionResult GetDetails()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Ok(userDetailsService.GetUserDetails(new Guid(User.Identity.GetUserId())));
+            }
+            return Ok(0);
+        }
     }
 }
