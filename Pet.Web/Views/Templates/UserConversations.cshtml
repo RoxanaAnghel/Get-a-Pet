@@ -1,0 +1,41 @@
+﻿<style>
+   .listdemoBasicUsage md-divider {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+</style>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+    <div flex-gt-sm="50" flex>
+
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+                <span>All messages</span>
+            </div>
+        </md-toolbar>
+
+        <md-content>
+            <md-list flex>
+                
+                <md-list-item class="md-3-line" ng-repeat="item in conversationsControler.userConversations" ng-click="null">
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.ID }}</h3> 
+                        <h4>{{ item.what }}</h4>
+                        <p>{{ item.notes }}</p>
+                    </div>
+                    about <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                </md-list-item>
+                @*<md-divider></md-divider>*@
+                
+                
+          
+        </md-content>
+    </div>

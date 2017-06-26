@@ -10,7 +10,7 @@
                 }
             };
         })
-        .config(function ($routeProvider, $httpProvider) {
+        .config(function ($routeProvider, $httpProvider, $mdIconProvider) {
             $httpProvider.interceptors.push('httpRequestInterceptor');
             $routeProvider
                 .when("/home", {
@@ -38,6 +38,13 @@
                     controller: "UserDetailsController",
                     controllerAs:"userDetailsController"
                 })
+                .when("/userconversations", {
+                    templateUrl: window.location.origin + "/Templates/UserConversations",
+                    controller: "conversationsController",
+                    controllerAs:"conversationsControler"
+                })
                 .otherwise({ redirectTo: "/home" });
+            $mdIconProvider
+                .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
         });
 })();

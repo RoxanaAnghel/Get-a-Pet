@@ -215,6 +215,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ConversationsController.cs" />
     <Compile Include="Controllers\Api\PetsController.cs" />
     <Compile Include="Controllers\Api\UserDetailsController.cs" />
     <Compile Include="Controllers\ConversationController.cs" />
@@ -237,6 +238,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.module.js" />
+    <Content Include="app\conversations\conversations.controller.js" />
+    <Content Include="app\conversations\conversations.service.js" />
     <Content Include="app\home\home.controller.js" />
     <Content Include="app\myPets\mypets.controller.js" />
     <Content Include="app\myPets\mypets.service.js" />
@@ -341,6 +344,7 @@
     <Content Include="Views\Templates\PetSave.cshtml" />
     <Content Include="Views\Templates\PetEdit.cshtml" />
     <Content Include="Views\Templates\UserDetails.cshtml" />
+    <Content Include="Views\Templates\UserConversations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
