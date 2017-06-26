@@ -28,6 +28,11 @@
                     controller: "PetSaveController",
                     controllerAs: "petSaveController"
                 })
+                .when("/pet-edit/:petId", {
+                    templateUrl: window.location.origin + "/Templates/PetEdit",
+                    controller: "PetEditController",
+                    controllerAs: "petEditController"
+                })
                 .otherwise({ redirectTo: "/home" });
         });
 })();

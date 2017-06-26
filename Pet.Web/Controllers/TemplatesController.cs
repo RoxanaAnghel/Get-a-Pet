@@ -18,5 +18,10 @@ namespace Pet.Web.Controllers
         {
             return PartialView("~/Views/Templates/PetSave.cshtml");
         }
+
+        public ActionResult PetEdit()
+        {
+            return PartialView("~/Views/Templates/PetEdit.cshtml");
+        }
     }
 }

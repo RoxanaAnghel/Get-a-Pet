@@ -68,5 +68,12 @@ namespace Pet.Web.Controllers.API
 
             return Ok();
         }
+
+        [HttpPut]
+        public IHttpActionResult Put(Database.Entities.Pet pet)
+        {
+            petService.Update(pet);
+            return Ok();
+        }
     }
 }

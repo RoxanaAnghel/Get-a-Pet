@@ -66,6 +66,7 @@ namespace Pet.Web
             controllerBundle.Include("~/app/myPets/mypets.controller.js");
             controllerBundle.Include("~/app/myPets/mypets.service.js");
             controllerBundle.Include("~/app/myPets/pet-save.controller.js");
+            controllerBundle.Include("~/app/myPets/pet-edit.controller.js");
             bundles.Add(controllerBundle);
         }
     }

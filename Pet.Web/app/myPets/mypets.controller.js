@@ -14,6 +14,7 @@
         vm.current = '';
         vm.deletePet = deletePet;
         vm.goToSave = goToSave;
+        vm.goToEdit = goToEdit;
         activate();
 
         function getAllPets() {
@@ -39,6 +40,11 @@
         function goToSave(pet) {
             console.log("in create new");
             location.path("/pet-save");
+        }
+
+        function goToEdit(petId) {
+            console.log("in create new");
+            location.path("/pet-edit/"+petId);
         }
 
         function activate() {

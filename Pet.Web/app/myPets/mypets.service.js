@@ -13,6 +13,7 @@
         this.deletePet = deletePet;
         this.getPet = getPet;
         this.addPet = addPet;
+        this.updatePet = updatePet;
         var query = "";
         function getAllPets(userId) {
             var params = { ownerId: userId }
@@ -37,6 +38,13 @@
             });
         }
         function addPet(pet) {
+            return $http({
+                method: 'POST',
+                url: '/api/pets',
+                data: pet
+            });
+        }
+        function updatePet(pet) {
             return $http({
                 method: 'POST',
                 url: '/api/pets',
