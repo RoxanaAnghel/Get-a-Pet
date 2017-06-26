@@ -17,16 +17,12 @@ namespace Pet.Web.Controllers.API
             unitOfWorkFactory = new UnitOfWorkFactory(new Config());
             petService = new PetService(unitOfWorkFactory);
         }
-
-        [Route("")]
+        
         [HttpGet]
-        public IHttpActionResult GetAllPets(Guid? ownerId=null)
+        public IHttpActionResult GetAllPets(Guid? ownerId = null)
         {
-
             Database.Entities.Pet[] pets = petService.GetAllPets(ownerId).ToArray();
             return Ok(pets);
         }
-
-       
     }
 }

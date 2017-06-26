@@ -10,11 +10,15 @@
     function myPetsService($http) {
 
         this.getAllPets = getAllPets;
-
+        var query=""
         function getAllPets(userId) {
+            var params = { ownerId: userId }
+            if (userId) {
+                query = "?ownerId=" + userId
+            }
             return $http({
                 method: 'GET',
-                url: window.location.origin + '/api/pets/' + userId
+                url: '/api/pets' + query
             });
         }
     }

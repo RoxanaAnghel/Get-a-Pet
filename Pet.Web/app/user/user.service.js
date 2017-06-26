@@ -9,14 +9,12 @@
 
     function userService($http) {
 
-        this.userId = getUserId;
-        this.user = 11;
-        //console.log(userId);
+        this.getUserId = getUserId;
 
         function getUserId() {
             return $http({
                 method: 'GET',
-                url: 'api/userdetails'
+                url: '/api/userdetails'
             });
         }
     }

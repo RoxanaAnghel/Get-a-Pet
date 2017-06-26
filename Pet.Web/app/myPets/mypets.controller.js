@@ -16,17 +16,16 @@
         activate();
 
         function getAllPets() {
-            var a = userService.user;
-            userService.getUserId.then(
+            userService.getUserId().then(
                 function (result) {
-
+                     myPetsService.getAllPets(result.data)
+                         .then(function (result) {
+                             vm.pets = result.data;
+                        });
                 },
                 function (error) {
 
-                }
-            );
-
-            console.log(a);
+                });
         }
 
         function activate() {
