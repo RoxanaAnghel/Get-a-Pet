@@ -49,7 +49,7 @@ namespace Pet.Web.Controllers
             
             pet.OwnerID = new Guid(User.Identity.GetUserId());
 
-            petService.Create(pet);
+            petService.AddOrUpdate(pet);
 
             return RedirectToAction("List");
         }
@@ -71,7 +71,7 @@ namespace Pet.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Database.Entities.Pet pet)
         {
-            petService.Update(pet);
+            petService.AddOrUpdate(pet);
             return RedirectToAction("Details", pet);
         }
 

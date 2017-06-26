@@ -58,23 +58,23 @@ namespace Pet.Database.Repositories
             dbSet.Remove(model);
         }
 
-        public virtual void Upsert<TModel>(TModel entity)
-            where TModel : class, IEntity
-        {
-            if (entity == null) throw new System.NullReferenceException("Value cannot be null");
+        //public virtual void Upsert<TModel>(TModel entity)
+        //    where TModel : class, IEntity
+        //{
+        //    if (entity == null) throw new System.NullReferenceException("Value cannot be null");
 
-            TModel existingEntity = dbContext.Set<TModel>().Find(entity.ID);
+        //    TModel existingEntity = dbContext.Set<TModel>().Find(entity.ID);
 
-            if (existingEntity == null)
-            {
-                dbContext.Set<TModel>().Add(entity);
-            }
-            else
-            {
-                Mapper.Map(entity, existingEntity);
-            }
-            dbContext.SaveChanges();
-        }
+        //    if (existingEntity == null)
+        //    {
+        //        dbContext.Set<TModel>().Add(entity);
+        //    }
+        //    else
+        //    {
+        //        Mapper.Map(entity, existingEntity);
+        //    }
+        //    dbContext.SaveChanges();
+        //}
 
         public TModel[] GetAll()
         {

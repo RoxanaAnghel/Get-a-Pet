@@ -17,6 +17,15 @@ namespace Pet.Services.Pet
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
+        public void AddOrUpdate(Database.Entities.Pet pet)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                unitOfWork.PetRepository.Upsert(pet);
+                unitOfWork.Save();
+            }
+        }
+
         public void Create(Database.Entities.Pet pet)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())

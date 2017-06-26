@@ -10,7 +10,10 @@
     function myPetsService($http) {
 
         this.getAllPets = getAllPets;
-        var query=""
+        this.deletePet = deletePet;
+        this.getPet = getPet;
+        this.addPet = addPet;
+        var query = "";
         function getAllPets(userId) {
             var params = { ownerId: userId }
             if (userId) {
@@ -19,6 +22,25 @@
             return $http({
                 method: 'GET',
                 url: '/api/pets' + query
+            });
+        }
+        function deletePet(petId) {
+            return $http({
+                method: 'DELETE',
+                url: '/api/pets/' + petId
+            });
+        }
+        function getPet(petId) {
+            return $http({
+                method: 'GET',
+                url: '/api/pets/' + petId
+            });
+        }
+        function addPet(pet) {
+            return $http({
+                method: 'POST',
+                url: '/api/pets',
+                data: pet
             });
         }
     }

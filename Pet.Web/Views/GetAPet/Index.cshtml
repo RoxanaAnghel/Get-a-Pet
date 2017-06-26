@@ -1,10 +1,9 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 @using Microsoft.AspNet.Identity
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html ng-app="getAPet">
 <head>
     <meta charset="utf-8" />
@@ -16,56 +15,37 @@
 
 </head>
 <body>
-    
-
-    <!-- Uses a transparent header that draws on top of the layout's background -->
-    <style>
-           .demo-layout-transparent {
-               background: url('../assets/demos/transparent.jpg') center / cover;
-           }
-
-               .demo-layout-transparent .mdl-layout__header,
-               .demo-layout-transparent .mdl-layout__drawer-button {
-                   /* This background is dark, so we set text to white. Use 87% black instead if
-        your background is light. */
-                   color: black;
-               }
-    </style>
-
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--transparent">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">Menu</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation -->
-                <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Home</a>
-                    <a class="mdl-navigation__link" href="">My Pets</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                </nav>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Get a Pet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Menu</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#home"><i class="material-icons">home</i>Home</a>
-                <a class="mdl-navigation__link" href="#mypets"><i class="material-icons">pets</i>MyPets</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <a class="mdl-navigation__link" href="#home">Home</a>
+                        <a class="mdl-navigation__link" href="#mypets">MyPets</a>
+                        <li>@Html.ActionLink("MyProfile", "Details", "UserDetails")</li>
+                        <li>@Html.ActionLink("MyMessages", "Conversations", "Conversation")</li>
+                    }
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
-        <main class="mdl-layout__content">
-        </main>
     </div>
-
     <div class="container body-content">
         <div ng-view>
 
         </div>
-       
+
         <footer style="clear:both">
             <hr />
             <p>&copy; @DateTime.Now.Year - Get a Pet</p>
@@ -74,35 +54,5 @@
     @Scripts.Render("~/angular")
     @Scripts.Render("~/module");
     @Scripts.Render("~/AngularControllers");
-
-    
 </body>
 </html>
-
-
-
-@*<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Get a Pet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                @if (Request.IsAuthenticated)
-                {
-                    <a href="#mypets">MyPets</a>
-                        <li>@Html.ActionLink("MyProfile", "Details", "UserDetails")</li>
-                        <li>@Html.ActionLink("MyMessages", "Conversations", "Conversation")</li>
-                }
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-            @Html.Partial("_LoginPartial")
-        </div>
-    </div>
-</div>*@

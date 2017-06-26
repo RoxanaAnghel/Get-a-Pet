@@ -5,9 +5,9 @@
         .module('getAPet')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['myPetService', '$scope'];
+    HomeController.$inject = ['myPetsService', '$scope'];
 
-    function HomeController(myPetService, scope) {
+    function HomeController(myPetsService, scope) {
 
         var vm = this;
         vm.pets = [];
@@ -15,7 +15,7 @@
         activate();
 
         function getAllPets() {
-            myPetService.getAllPets()
+            myPetsService.getAllPets()
                 .then(function (result) {
                     vm.pets = result.data;
                 });

@@ -12,6 +12,6 @@ namespace Pet.Database.Repositories
         Entities.Pet[] getAllByOwner(Guid id);
 
         Entities.Pet[] List(Guid? ownerId);
-
+        void Upsert(Entities.Pet pet);
     }
 }

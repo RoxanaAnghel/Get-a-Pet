@@ -5,14 +5,15 @@
         .module('getAPet')
         .controller('MyPetsController', MyPetsController);
 
-    MyPetsController.$inject = ['myPetsService', '$scope','userService'];
+    MyPetsController.$inject = ['myPetsService', '$scope','userService','$location'];
 
-    function MyPetsController(myPetsService, scope,userService) {
+    function MyPetsController(myPetsService, scope,userService,location) {
 
         var vm = this;
         vm.pets = [];
         vm.current = '';
-
+        vm.deletePet = deletePet;
+        vm.goToSave = goToSave;
         activate();
 
         function getAllPets() {
@@ -26,6 +27,18 @@
                 function (error) {
 
                 });
+        }
+
+        function deletePet(petId) {
+            myPetsService.deletePet(petId)
+                .then(function () {
+                    getAllPets();
+                });
+        }
+
+        function goToSave(pet) {
+            console.log("in create new");
+            location.path("/pet-save");
         }
 
         function activate() {

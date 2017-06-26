@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- Textfield with Floating Label -->
+
+<md-input-container>
+    <label>Name</label>
+    <input ng-model="petSaveController.pet.Name">
+</md-input-container>
+
+<br />
+
+<md-input-container>
+    <label>Location</label>
+    <input ng-model="petSaveController.pet.Location">
+</md-input-container>
+
+<br />
+
+<md-input-container>
+    <label>ImageUrl</label>
+    <input ng-model="petSaveController.pet.ImageUrl">
+</md-input-container>
+
+<br />
+
+<md-input-container>
+    <label>Description</label>
+    <input ng-model="petSaveController.pet.Description">
+</md-input-container>
+
+<md-radio-group ng-model="petSaveController.pet.Species">
+    <md-radio-button value="1"> DOG </md-radio-button>
+    <md-radio-button value="2"> CAT </md-radio-button>
+    <md-radio-button value="3"> RODENT </md-radio-button>
+    <md-radio-button value="4"> FISH </md-radio-button>
+    <md-radio-button value="5"> REPTILE </md-radio-button>
+    <md-radio-button value="6"> INSECTS </md-radio-button>
+    <md-radio-button value="7"> HORSE </md-radio-button>
+    <md-radio-button value="9"> OTHER </md-radio-button>
+</md-radio-group>
+
+
+
+<md-radio-group ng-model="petSaveController.pet.PureBreed">
+    <md-radio-button value="true"> Pure Breed </md-radio-button>
+    <md-radio-button value="false"> Mixed Breed </md-radio-button>
+</md-radio-group>
+
+
+<md-input-container>
+    <label>Breed</label>
+    <input ng-model="petSaveController.pet.Breed">
+</md-input-container>
+
+
+<br />
+<input ng-model="petSaveController.pet.MainColour" />
+<br />
+<input ng-model="petSaveController.pet.FurType" />
+<br />
+<input ng-model="petSaveController.pet.Size" />
+<br />
+
+<div layout-gt-xs="row">
+    <div flex-gt-xs>
+        <h4>Will be used for date</h4>
+        <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    </div>
+</div>
+   
+
+<md-button ng-click="petSaveController.save()" class="md-raised">ADD PET</md-button>

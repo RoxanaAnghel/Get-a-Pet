@@ -23,6 +23,11 @@
                     controller: "MyPetsController",
                     controllerAs: "myPetsController"
                 })
+                .when("/pet-save", {
+                    templateUrl: window.location.origin + "/Templates/PetSave",
+                    controller: "PetSaveController",
+                    controllerAs: "petSaveController"
+                })
                 .otherwise({ redirectTo: "/home" });
         });
 })();

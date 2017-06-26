@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pet.Database.Entities;
+using System.Data.Entity.Migrations;
 
 namespace Pet.Database.Repositories
 {
@@ -31,6 +32,11 @@ namespace Pet.Database.Repositories
                 petQuery = petQuery.Where(pet => pet.OwnerID == ownerId.Value);
             
             return petQuery.ToArray();
+        }
+
+        public void Upsert(Entities.Pet pet)
+        {
+            dbSet.AddOrUpdate(pet);
         }
     }
 }

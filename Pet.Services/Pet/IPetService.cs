@@ -15,6 +15,8 @@ namespace Pet.Services.Pet
 
         void Create(Database.Entities.Pet pet);
 
+        void AddOrUpdate(Database.Entities.Pet pet);
+
         Database.Entities.Pet[] GetPetsForOwner(Guid id);
     }
 }
