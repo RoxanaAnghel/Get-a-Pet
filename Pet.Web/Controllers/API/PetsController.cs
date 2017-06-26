@@ -27,6 +27,14 @@ namespace Pet.Web.Controllers.API
             return Ok(pets);
         }
 
-       
+        [Route("")]
+        [HttpGet]
+        public IHttpActionResult GetAllPetsFor(Guid ownerId)
+        {
+
+            Database.Entities.Pet[] pets = petService.GetAllPets(ownerId).ToArray();
+            return Ok(pets);
+        }
+
     }
 }
