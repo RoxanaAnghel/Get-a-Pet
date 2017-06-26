@@ -18,6 +18,7 @@ namespace Pet.Web.Controllers.API
             petService = new PetService(unitOfWorkFactory);
         }
         
+        [Route("{ownerId:Guid?}")]
         [HttpGet]
         public IHttpActionResult GetAllPets(Guid? ownerId = null)
         {
