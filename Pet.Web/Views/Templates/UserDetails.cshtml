@@ -9,13 +9,20 @@
 
 
 
-
-<md-card>
-    <img src="card-image.png" class="md-card-image" alt="image caption">
-    <md-card-content>
-        <h2>{{userDetailsController.user.Name}} {{userDetailsController.user.Surname}} </h2>
-    </md-card-content>
-    <md-card-footer>
-        {{userDetailsController.user.Description}}
-    </md-card-footer>
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{userDetailsController.user.Name}} {{userDetailsController.user.Surname}}</span>
+            <span class="md-subhead">{{userDetailsController.user.Description}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-lg card-media">
+                <img src="" />
+            </div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button>Edit Profile</md-button>
+        <md-button>Settings</md-button>
+    </md-card-actions>
 </md-card>
