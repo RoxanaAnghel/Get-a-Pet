@@ -32,20 +32,20 @@ namespace Pet.Web.Controllers
             /*
              * currently shows all messages as one chat
              */
-            Message[] allMessages = messageService.GetAllMessages(new Guid(User.Identity.GetUserId()));
+            Database.Entities.Message[] allMessages = messageService.GetAllMessages(new Guid(User.Identity.GetUserId()));
             return View(allMessages);
         }
 
         public ActionResult List(Guid ownerId,Guid petId)
         {
-            Message[] messeges = messageService.GetMessegesBetwenForPet(ownerId, new Guid(User.Identity.GetUserId()), petId);
+            Database.Entities.Message[] messeges = messageService.GetMessegesBetwenForPet(ownerId, new Guid(User.Identity.GetUserId()), petId);
             return View(messeges);
         }
         
         // GET: Message/Create
         public ActionResult Create(Guid ownerId,Guid petId)
         {
-            Message message = new Message();
+            Database.Entities.Message message = new Database.Entities.Message();
             message.ID = Guid.NewGuid();
             //message.PetId = petId;
             //message.ToId = ownerId;
@@ -55,14 +55,14 @@ namespace Pet.Web.Controllers
 
         // POST: Message/Create
         [HttpPost]
-        public ActionResult Create(Message message)
+        public ActionResult Create(Database.Entities.Message message)
         {
             try
             {
                 message.ID = Guid.NewGuid();
                 message.SentDate = DateTime.Now;
                 //message.FromId = new Guid(User.Identity.GetUserId());
-                
+                message.SentBy = new Guid(User.Identity.GetUserId());
                 messageService.SendMessage(message);
 
                 return RedirectToAction("List");//,//new { ownerId=message.ToId, petID=message.PetId });

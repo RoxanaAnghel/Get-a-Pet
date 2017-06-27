@@ -16,9 +16,9 @@
         this.updatePet = updatePet;
         var query = "";
         function getAllPets(userId) {
-            var params = { ownerId: userId }
+            var params = { ownerId: userId };
             if (userId) {
-                query = "?ownerId=" + userId
+                query = "?ownerId=" + userId;
             }
             return $http({
                 method: 'GET',

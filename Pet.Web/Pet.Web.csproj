@@ -216,6 +216,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\ConversationsController.cs" />
+    <Compile Include="Controllers\Api\MessagesController.cs" />
     <Compile Include="Controllers\Api\PetsController.cs" />
     <Compile Include="Controllers\Api\UserDetailsController.cs" />
     <Compile Include="Controllers\ConversationController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -241,6 +243,7 @@
     <Content Include="app\conversations\conversation.controller.js" />
     <Content Include="app\conversations\conversations.controller.js" />
     <Content Include="app\conversations\conversations.service.js" />
+    <Content Include="app\conversations\messages.service.js" />
     <Content Include="app\home\home.controller.js" />
     <Content Include="app\myPets\mypets.controller.js" />
     <Content Include="app\myPets\mypets.service.js" />
@@ -346,6 +349,7 @@
     <Content Include="Views\Templates\PetEdit.cshtml" />
     <Content Include="Views\Templates\UserDetails.cshtml" />
     <Content Include="Views\Templates\UserConversations.cshtml" />
+    <Content Include="Views\Templates\Conversation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

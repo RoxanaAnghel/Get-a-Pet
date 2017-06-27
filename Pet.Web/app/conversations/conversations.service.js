@@ -17,5 +17,19 @@
                 url: '/api/conversations/user'
             });
         }
+
+        function getConversationMessages(conversationId) {
+            return $http({
+                method: 'GET',
+                url: '/api/conversations/messages/' + conversationId
+            });
+        }
+
+        function getConversation(conversationId) {
+            return $http({
+                method: 'GET',
+                url: '/api/conversations/' + conversationId
+            })
+        }
     }
 })();

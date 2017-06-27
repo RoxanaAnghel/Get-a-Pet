@@ -1,5 +1,5 @@
 ﻿(function () {
-    'use strict'
+    'use strict';
 
     angular
         .module('getAPet', ['ngRoute', 'ngMaterial'])
@@ -44,7 +44,7 @@
                     controllerAs:"conversationsController"
                 })
                 .when("/userconversation/:conversationId" , {
-                    templateUrl: window.location.origin + "/Templates/UserConversations",
+                    templateUrl: window.location.origin + "/Templates/Conversation",
                     controller: "conversationController",
                     controllerAs: "conversationController"
                 })

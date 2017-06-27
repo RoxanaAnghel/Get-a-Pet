@@ -27,7 +27,7 @@ namespace Pet.Web.Controllers
 
         public ActionResult SendMessage(Guid id)
         {
-            Message m = new Message() { ID = Guid.NewGuid(), ConversationId = id, Text = "buna" };
+            Database.Entities.Message m = new Database.Entities.Message() { ID = Guid.NewGuid(), ConversationId = id, Text = "buna" };
             messageService.SendMessage(m);
             return RedirectToAction("GetMessages", new { id = id });
         }
@@ -46,7 +46,7 @@ namespace Pet.Web.Controllers
 
             Database.Entities.Conversation conversation = conversationService.GetConversationBeetwen(currentUser, petId);
 
-            Message[] messages = messageService.GetMesagesForConversation(conversation.ID);
+            Database.Entities.Message[] messages = messageService.GetMesagesForConversation2(conversation.ID);
 
             ViewBag.ConversationId = conversation.ID;
 
@@ -55,7 +55,7 @@ namespace Pet.Web.Controllers
 
         public ActionResult GetMessages(Guid id)
         {
-            Message[] messages = messageService.GetMesagesForConversation(id);
+            Database.Entities.Message[] messages = messageService.GetMesagesForConversation2(id);
             ViewBag.ConversationId = id;
             return View(messages);
         }

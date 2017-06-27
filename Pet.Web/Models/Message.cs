@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Pet.Database.Entities
+namespace Pet.Web.Models
 {
-    public class Message:IEntity
+    public class Message
     {
-        public Guid ID { get; set; }
+        public Guid? ID { get; set; }
 
         public Guid ConversationId { get; set; }
 
-        public Guid SentBy { get; set; }
+        public Guid? SentBy { get; set; }
 
         public string Text { get; set; }
 
@@ -21,5 +20,3 @@ namespace Pet.Database.Entities
         public bool Read { get; set; }
     }
 }
-
-

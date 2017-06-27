@@ -33,5 +33,10 @@ namespace Pet.Web.Controllers
         {
             return PartialView("~/Views/Templates/UserConversations.cshtml");
         }
+
+        public ActionResult Conversation()
+        {
+            return PartialView("~/Views/Templates/Conversation.cshtml");
+        }
     }
 }
