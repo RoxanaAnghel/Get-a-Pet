@@ -64,7 +64,7 @@ namespace Pet.Web.Controllers
                 //message.FromId = new Guid(User.Identity.GetUserId());
                 message.SentBy = new Guid(User.Identity.GetUserId());
                 messageService.SendMessage(message);
-
+               
                 return RedirectToAction("List");//,//new { ownerId=message.ToId, petID=message.PetId });
             }
             catch

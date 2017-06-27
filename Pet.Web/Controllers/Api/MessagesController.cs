@@ -1,4 +1,5 @@
-﻿using Pet.Database;
+﻿using Microsoft.AspNet.Identity;
+using Pet.Database;
 using Pet.Services.Messages;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace Pet.Web.Controllers.Api
         [HttpGet]
         public IHttpActionResult GetMessages(Guid conversationId)
         {
+            Message[] m = messageService.GetMesagesForConversation(conversationId);
             return Ok(messageService.GetMesagesForConversation(conversationId));
         }
 
@@ -36,7 +38,8 @@ namespace Pet.Web.Controllers.Api
                 ID = Guid.NewGuid(),
                 Text = message.Text,
                 ConversationId = message.ConversationId,
-                Read = false
+                Read = false,
+                SentBy=new Guid(User.Identity.GetUserId())
             };
             messageService.SendMessage(dbMessage);
             return Ok(message);

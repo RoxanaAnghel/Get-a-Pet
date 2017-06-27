@@ -10,6 +10,7 @@
     function conversationsService($http) {
 
         this.userConversations = userConversations;
+        this.getConversation = getConversation;
 
         function userConversations() {
             return $http({

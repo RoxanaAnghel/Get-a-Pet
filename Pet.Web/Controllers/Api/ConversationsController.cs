@@ -21,7 +21,8 @@ namespace Pet.Web.Controllers.Api
         [HttpGet]
         public IHttpActionResult GetConversation(Guid id)
         {
-            return Ok(conversationService.GetById(id));
+            Guid current = new Guid(User.Identity.GetUserId());
+            return Ok(conversationService.GetById_(id,current));
         }
 
 

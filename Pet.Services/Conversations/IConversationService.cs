@@ -13,6 +13,7 @@ namespace Pet.Services.Conversations
         Database.Entities.Conversation GetById(Guid id);
 
         Conversation[] GetAllForUser(Guid userId);
+        Conversation GetById_(Guid conversationId,Guid current);
     }
 
 
@@ -33,5 +34,7 @@ namespace Pet.Services.Conversations
         public string PetImagineUrl { get; set; }
 
         public bool Active { get; set; }
+
+        public string WithName { get; set; }
     }
 }

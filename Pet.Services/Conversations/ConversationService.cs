@@ -62,6 +62,36 @@ namespace Pet.Services.Conversations
             }
         }
 
+        public Conversation GetById_(Guid conversationId,Guid current)
+        {
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            {
+                Database.Entities.Conversation dbConversation= unitOfWork.ConversationRepository.GetByID(conversationId);
+
+                
+
+                Guid otherUserId = current == dbConversation.FromID ? dbConversation.PetOwnerId : dbConversation.FromID;
+
+                Database.Entities.UserDetails otherUser = unitOfWork.UserDetailsRepository.GetByID(otherUserId);
+                Database.Entities.Pet pet = unitOfWork.PetRepository.GetByID(dbConversation.PetID);
+
+                Conversation conversation=new Conversation()
+                {
+                    WithID = dbConversation.FromID,
+                    WithImagineUrl = otherUser.ImagineUrl, //sender.Image,
+                    ID = dbConversation.ID,
+                    PetID = dbConversation.PetID,
+                    PetImagineUrl = pet.ImageUrl,
+                    YourId = dbConversation.PetOwnerId,
+                    YourImagineUrl = dbConversation.PetOwnerImagineUrl,
+                    Active = dbConversation.Status
+                };
+
+                return conversation;
+
+            }
+        }
+
         public Database.Entities.Conversation GetConversationBeetwen(Guid userId, Guid petId)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
