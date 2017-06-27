@@ -20,18 +20,18 @@ namespace Pet.Services.Conversations
     {
         public Guid ID { get; set; }
 
-        public Guid PetOwnerId { get; set; }
+        public Guid YourId { get; set; }
 
-        public string PetOwnerImagineUrl { get; set; }
+        public string YourImagineUrl { get; set; }
 
-        public Guid FromID { get; set; }
+        public Guid WithID { get; set; }
 
-        public string FromUserImagineUrl { get; set; }
+        public string WithImagineUrl { get; set; }
 
         public Guid PetID { get; set; }
 
         public string PetImagineUrl { get; set; }
 
-        public bool Status { get; set; }
+        public bool Active { get; set; }
     }
 }

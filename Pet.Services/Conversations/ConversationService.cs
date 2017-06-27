@@ -39,14 +39,14 @@ namespace Pet.Services.Conversations
 
                     conversations.Add(new Conversation()
                     {
-                        FromID = dbConversation.FromID,
-                        FromUserImagineUrl = otherUser.ImagineUrl, //sender.Image,
+                        WithID = dbConversation.FromID,
+                        WithImagineUrl = otherUser.ImagineUrl, //sender.Image,
                         ID = dbConversation.ID,
                         PetID = dbConversation.PetID,
                         PetImagineUrl = pet.ImageUrl,
-                        PetOwnerId = dbConversation.PetOwnerId,
-                        PetOwnerImagineUrl = dbConversation.PetOwnerImagineUrl,
-                        Status = dbConversation.Status
+                        YourId = dbConversation.PetOwnerId,
+                        YourImagineUrl = dbConversation.PetOwnerImagineUrl,
+                        Active = dbConversation.Status
                     });
                 }
 

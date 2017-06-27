@@ -13,11 +13,22 @@
         vm.getUserConversations = getUserConversations;
         vm.userConversations = [];
         getUserConversations();
+        vm.goToConversation = goToConversation;
         function getUserConversations() {
             conversationsService.userConversations().
                 then(function (result) {
                     vm.userConversations = result.data;
                 });
+        }
+
+        function goToConversation(conversationId) {
+            console.log("its working");
+
+            location.path("/userconversation/" + conversationId);
+        }
+
+        function go() {
+            console.log("meregeee");
         }
     }
 })();

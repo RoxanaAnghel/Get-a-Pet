@@ -238,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.module.js" />
+    <Content Include="app\conversations\conversation.controller.js" />
     <Content Include="app\conversations\conversations.controller.js" />
     <Content Include="app\conversations\conversations.service.js" />
     <Content Include="app\home\home.controller.js" />

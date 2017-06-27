@@ -41,7 +41,12 @@
                 .when("/userconversations", {
                     templateUrl: window.location.origin + "/Templates/UserConversations",
                     controller: "conversationsController",
-                    controllerAs:"conversationsControler"
+                    controllerAs:"conversationsController"
+                })
+                .when("/userconversation/:conversationId" , {
+                    templateUrl: window.location.origin + "/Templates/UserConversations",
+                    controller: "conversationController",
+                    controllerAs: "conversationController"
                 })
                 .otherwise({ redirectTo: "/home" });
             $mdIconProvider
