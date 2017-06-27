@@ -8,9 +8,9 @@ using System.Data.Entity.Migrations;
 
 namespace Pet.Database.Repositories
 {
-    public class PetRepository:BaseRepository<Entities.Pet>,IPetRepository
+    public class PetRepository : BaseRepository<Entities.Pet>, IPetRepository
     {
-        public PetRepository(PetDataContext dbContext,UnitOfWork unitOfWork):
+        public PetRepository(PetDataContext dbContext, UnitOfWork unitOfWork) :
             base(dbContext, unitOfWork)
         { }
 
@@ -24,13 +24,18 @@ namespace Pet.Database.Repositories
             return dbSet.Where(p => p.OwnerID == id).ToArray();
         }
 
+        public Entities.Pet[] GetByIds(Guid[] ids)
+        {
+            return dbSet.Where(x => ids.Contains(x.ID)).ToArray();
+        }
+
         public Entities.Pet[] List(Guid? ownerId)
         {
             IQueryable<Entities.Pet> petQuery = dbSet;
 
             if (ownerId.HasValue)
                 petQuery = petQuery.Where(pet => pet.OwnerID == ownerId.Value);
-            
+
             return petQuery.ToArray();
         }
 

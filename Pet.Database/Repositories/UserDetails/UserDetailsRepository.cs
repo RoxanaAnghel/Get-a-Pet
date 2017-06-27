@@ -1,16 +1,18 @@
 ﻿using Pet.Database.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pet.Database.Repositories
 {
-    public class UserDetailsRepository:BaseRepository<UserDetails>,IUserDetailsRepository
+    public class UserDetailsRepository : BaseRepository<UserDetails>, IUserDetailsRepository
     {
-        public UserDetailsRepository(PetDataContext dbContext, UnitOfWork unitOfWork):
+        public UserDetailsRepository(PetDataContext dbContext, UnitOfWork unitOfWork) :
             base(dbContext, unitOfWork)
         { }
+
+        public UserDetails[] GetByIds(Guid[] ids)
+        {
+            return dbSet.Where(x => ids.Contains(x.ID)).ToArray();
+        }
     }
 }

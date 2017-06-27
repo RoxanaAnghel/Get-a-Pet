@@ -1,6 +1,7 @@
 ﻿using Pet.Database;
 using Pet.Database.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Pet.Services.Conversations
@@ -18,17 +19,38 @@ namespace Pet.Services.Conversations
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
-                return unitOfWork.ConversationRepository.GetAllFor(userId).Select(x => new Conversation()
+                List<Conversation> conversations = new List<Conversation>();
+
+                Database.Entities.Conversation[] dbConversations = unitOfWork.ConversationRepository.GetAllFor(userId);
+
+                Guid[] otherUserIds = dbConversations.SelectMany(x => new Guid[2] { x.FromID, x.PetOwnerId }).Distinct().Where(x => x != userId).ToArray();
+                Guid[] petIds = dbConversations.Select(x => x.PetID).ToArray();
+
+                Database.Entities.UserDetails[] otherUsers = unitOfWork.UserDetailsRepository.GetByIds(otherUserIds);
+
+                Database.Entities.Pet[] pets = unitOfWork.PetRepository.GetByIds(petIds);
+
+                foreach (Database.Entities.Conversation dbConversation in dbConversations)
                 {
-                    FromID = x.FromID,
-                    FromUserImagineUrl = x.FromUserImagineUrl,
-                    ID = x.ID,
-                    PetID = x.PetID,
-                    PetImagineUrl = x.PetImagineUrl,
-                    PetOwnerId = x.PetOwnerId,
-                    PetOwnerImagineUrl = x.PetOwnerImagineUrl,
-                    Status = x.Status
-                }).ToArray();
+                    Guid otherUserId = userId == dbConversation.FromID ? dbConversation.PetOwnerId : dbConversation.FromID;
+
+                    Database.Entities.UserDetails otherUser = otherUsers.First(x => x.ID == otherUserId);
+                    Database.Entities.Pet pet = pets.First(x => x.ID == dbConversation.PetID);
+
+                    conversations.Add(new Conversation()
+                    {
+                        FromID = dbConversation.FromID,
+                        FromUserImagineUrl = string.Empty, //sender.Image,
+                        ID = dbConversation.ID,
+                        PetID = dbConversation.PetID,
+                        PetImagineUrl = pet.ImageUrl,
+                        PetOwnerId = dbConversation.PetOwnerId,
+                        PetOwnerImagineUrl = dbConversation.PetOwnerImagineUrl,
+                        Status = dbConversation.Status
+                    });
+                }
+
+                return conversations.ToArray();
             }
         }
 
