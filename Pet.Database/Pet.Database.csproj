@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201706221706427_UpdateMessage.Designer.cs">
       <DependentUpon>201706221706427_UpdateMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706270801092_ImagineUrlAddedToUserDetails.cs" />
+    <Compile Include="Migrations\201706270801092_ImagineUrlAddedToUserDetails.Designer.cs">
+      <DependentUpon>201706270801092_ImagineUrlAddedToUserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetDataContext.cs" />
     <Compile Include="Repositories\Conversations\ConversationRepository.cs" />
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706221706427_UpdateMessage.resx">
       <DependentUpon>201706221706427_UpdateMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706270801092_ImagineUrlAddedToUserDetails.resx">
+      <DependentUpon>201706270801092_ImagineUrlAddedToUserDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

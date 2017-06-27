@@ -40,7 +40,7 @@ namespace Pet.Services.Conversations
                     conversations.Add(new Conversation()
                     {
                         FromID = dbConversation.FromID,
-                        FromUserImagineUrl = string.Empty, //sender.Image,
+                        FromUserImagineUrl = otherUser.ImagineUrl, //sender.Image,
                         ID = dbConversation.ID,
                         PetID = dbConversation.PetID,
                         PetImagineUrl = pet.ImageUrl,

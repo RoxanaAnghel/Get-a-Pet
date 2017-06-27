@@ -18,6 +18,8 @@ namespace Pet.Database.Entities
 
         public DateTime? BirthDate { get; set; }
 
+        public string ImagineUrl { get; set; }
+
         public ShelterType ShelterType { get; set; }
 
     }
