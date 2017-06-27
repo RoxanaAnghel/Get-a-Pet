@@ -29,7 +29,7 @@
             return $http({
                 method: 'GET',
                 url: '/api/conversations/' + conversationId
-            })
+            });
         }
     }
 })();
