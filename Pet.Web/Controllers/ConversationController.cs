@@ -35,17 +35,21 @@ namespace Pet.Web.Controllers
         // GET: Conversation
         public ActionResult Conversations()
         {
+            Services.Conversations.Conversation[] conversations = conversationService.GetAllForUser(new Guid(User.Identity.GetUserId()));
 
-            Conversation[] conversations = conversationService.GetAllForUser(new Guid(User.Identity.GetUserId()));
             return View(conversations);
         }
 
         public ActionResult GetConversation(Guid ownerId, Guid petId)
         {
             Guid currentUser = new Guid(User.Identity.GetUserId());
-            Conversation conversation = conversationService.GetConversationBeetwen(currentUser, petId);
+
+            Database.Entities.Conversation conversation = conversationService.GetConversationBeetwen(currentUser, petId);
+
             Message[] messages = messageService.GetMesagesForConversation(conversation.ID);
+
             ViewBag.ConversationId = conversation.ID;
+
             return View(messages);
         }
 

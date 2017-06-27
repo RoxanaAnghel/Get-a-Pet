@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pet.Database;
 using Pet.Database.Entities;
-using Pet.Database;
+using System;
+using System.Linq;
 
 namespace Pet.Services.Conversations
 {
@@ -19,21 +16,31 @@ namespace Pet.Services.Conversations
 
         public Conversation[] GetAllForUser(Guid userId)
         {
-            using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
-                return unitOfWork.ConversationRepository.GetAllFor(userId);
+                return unitOfWork.ConversationRepository.GetAllFor(userId).Select(x => new Conversation()
+                {
+                    FromID = x.FromID,
+                    FromUserImagineUrl = x.FromUserImagineUrl,
+                    ID = x.ID,
+                    PetID = x.PetID,
+                    PetImagineUrl = x.PetImagineUrl,
+                    PetOwnerId = x.PetOwnerId,
+                    PetOwnerImagineUrl = x.PetOwnerImagineUrl,
+                    Status = x.Status
+                }).ToArray();
             }
         }
 
-        public Conversation GetById(Guid id)
+        public Database.Entities.Conversation GetById(Guid id)
         {
-            using(IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
+            using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
                 return unitOfWork.ConversationRepository.GetByID(id);
             }
         }
 
-        public Conversation GetConversationBeetwen(Guid userId, Guid petId)
+        public Database.Entities.Conversation GetConversationBeetwen(Guid userId, Guid petId)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
             {
@@ -42,7 +49,7 @@ namespace Pet.Services.Conversations
                     Database.Entities.Pet pet = unitOfWork.PetRepository.GetByID(petId);
                     UserDetails petOwner = unitOfWork.UserDetailsRepository.GetByID(pet.OwnerID);
                     UserDetails user = unitOfWork.UserDetailsRepository.GetByID(userId);
-                    Conversation conversation = new Conversation() { ID = Guid.NewGuid(), PetID = petId, PetOwnerId = pet.OwnerID, PetImagineUrl = pet.ImageUrl ,FromID=userId};
+                    Database.Entities.Conversation conversation = new Database.Entities.Conversation() { ID = Guid.NewGuid(), PetID = petId, PetOwnerId = pet.OwnerID, PetImagineUrl = pet.ImageUrl, FromID = userId };
                     unitOfWork.ConversationRepository.Create(conversation);
                     unitOfWork.Save();
                     return conversation;
