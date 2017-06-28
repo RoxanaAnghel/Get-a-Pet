@@ -35,19 +35,22 @@ namespace Pet.Services.Conversations
                     Guid otherUserId = userId == dbConversation.FromID ? dbConversation.PetOwnerId : dbConversation.FromID;
 
                     Database.Entities.UserDetails otherUser = otherUsers.First(x => x.ID == otherUserId);
-                    Database.Entities.Pet pet = pets.First(x => x.ID == dbConversation.PetID);
+                    Database.Entities.Pet pet = pets.FirstOrDefault(x => x.ID == dbConversation.PetID);
 
-                    conversations.Add(new Conversation()
+                    if (pet != null)
                     {
-                        WithID = dbConversation.FromID,
-                        WithImagineUrl = otherUser.ImagineUrl, //sender.Image,
-                        ID = dbConversation.ID,
-                        PetID = dbConversation.PetID,
-                        PetImagineUrl = pet.ImageUrl,
-                        YourId = dbConversation.PetOwnerId,
-                        YourImagineUrl = dbConversation.PetOwnerImagineUrl,
-                        Active = dbConversation.Status
-                    });
+                        conversations.Add(new Conversation()
+                        {
+                            WithID = dbConversation.FromID,
+                            WithImagineUrl = otherUser.ImagineUrl, //sender.Image,
+                            ID = dbConversation.ID,
+                            PetID = dbConversation.PetID,
+                            PetImagineUrl = pet.ImageUrl,
+                            YourId = dbConversation.PetOwnerId,
+                            YourImagineUrl = dbConversation.PetOwnerImagineUrl,
+                            Active = dbConversation.Status
+                        });
+                    }
                 }
 
                 return conversations.ToArray();
