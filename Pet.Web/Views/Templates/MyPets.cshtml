@@ -60,9 +60,9 @@
                 <a ng-click="myPetsController.goToEdit(pet.ID)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     <i class="material-icons">edit</i>
                 </a>
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="myPetsController.deletePet(pet.ID)">
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="myPetsController.showDeleteConfirm($event,pet.ID)">
                     <i class="material-icons">delete</i>
-                </a>
+                </button>
             </div>
         </div>
     </div>

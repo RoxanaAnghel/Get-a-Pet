@@ -40,9 +40,9 @@
             {{Pet.Description}}
         </div>
         <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="homeController.getPetProfile(pet.ID,$event)">
                 <i class="material-icons">pets</i>
-            </a>
+            </button>
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 <i class="material-icons">mail_outline</i>
             </a>

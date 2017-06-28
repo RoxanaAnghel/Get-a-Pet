@@ -350,6 +350,7 @@
     <Content Include="Views\Templates\UserDetails.cshtml" />
     <Content Include="Views\Templates\UserConversations.cshtml" />
     <Content Include="Views\Templates\Conversation.cshtml" />
+    <Content Include="Views\Templates\PetViewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

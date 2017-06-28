@@ -5,9 +5,9 @@
         .module('getAPet')
         .controller('MyPetsController', MyPetsController);
 
-    MyPetsController.$inject = ['myPetsService', '$scope','userService','$location'];
+    MyPetsController.$inject = ['myPetsService', '$scope','userService','$location','$mdDialog'];
 
-    function MyPetsController(myPetsService, scope,userService,location) {
+    function MyPetsController(myPetsService, $scope,userService,location,$mdDialog) {
 
         var vm = this;
         vm.pets = [];
@@ -15,7 +15,11 @@
         vm.deletePet = deletePet;
         vm.goToSave = goToSave;
         vm.goToEdit = goToEdit;
+        vm.showDeleteConfirm = showDeleteConfirm;
+
         activate();
+
+
 
         function getAllPets() {
             userService.getUserId().then(
@@ -35,6 +39,23 @@
                 .then(function () {
                     getAllPets();
                 });
+        }
+
+        function showDeleteConfirm(ev,petId) {
+            var confirm = $mdDialog.confirm()
+                .title('Deleting this pet?')
+                .textContent('There will be no option to undo this operation')
+                .ariaLabel('Lucky day')
+                .targetEvent(ev)
+                .ok('Yes')
+                .cancel('No');
+
+            $mdDialog.show(confirm).then(function () {
+                deletePet(petId);
+                $scope.status = 'Pet deleted';
+            }, function () {
+               
+            });
         }
 
         function goToSave(pet) {

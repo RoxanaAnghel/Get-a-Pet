@@ -11,7 +11,21 @@
 
         var vm = this;
         vm.save = save;
-        vm.pet = {};
+        vm.pet = vm.pet = {
+
+            Name: "",
+            Location: "",
+            ImageUrl: "",
+            Description: "",
+            Species: 0,
+            Breed: "",
+            PureBreed: false,
+            MainColour: 0,
+            FurType: 0,
+            Size: 0,
+            Adopted: false,
+            BirthDate: false
+        };
         vm.save = save;
         vm.cancel = cancel;
         load();

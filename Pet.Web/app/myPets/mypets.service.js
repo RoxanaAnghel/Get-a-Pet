@@ -46,7 +46,7 @@
         }
         function updatePet(pet) {
             return $http({
-                method: 'POST',
+                method: 'PUT',
                 url: '/api/pets',
                 data: pet
             });

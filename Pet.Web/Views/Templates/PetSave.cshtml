@@ -3,7 +3,9 @@
     Layout = null;
 }
 
+<style>
 
+</style>
 <br />
 <br />
 <br />
@@ -13,33 +15,46 @@
 
 <!-- Textfield with Floating Label -->
 
-<md-input-container>
-    <label>Name</label>
-    <input ng-model="petSaveController.pet.Name">
-</md-input-container>
+<div layout="row">
+
+    <md-input-container>
+        <label>Name</label>
+        <input ng-model="petSaveController.pet.Name">
+    </md-input-container>
+
+    <md-input-container>
+        <label>Location</label>
+        <input ng-model="petSaveController.pet.Location">
+    </md-input-container>
+
+
+
+    <md-input-container>
+        <label>ImageUrl</label>
+        <input ng-model="petSaveController.pet.ImageUrl">
+    </md-input-container>
+
+    <div flex-gt-xs>
+        <md-datepicker ng-model="ctrl.myDate" md-placeholder="Birth date" md-open-on-focus></md-datepicker>
+    </div>
+
+</div>
+
+<div layout-gt-xs="row">
+    
+</div>
 
 <br />
 
-<md-input-container>
-    <label>Location</label>
-    <input ng-model="petSaveController.pet.Location">
-</md-input-container>
-
-<br />
-
-<md-input-container>
-    <label>ImageUrl</label>
-    <input ng-model="petSaveController.pet.ImageUrl">
-</md-input-container>
-
-<br />
-
-<md-input-container>
+<md-input-container class="md-block">
     <label>Description</label>
-    <input ng-model="petSaveController.pet.Description">
+    <textarea ng-model="petSaveController.pet.Description" maxlength="100" rows="5"> </textarea>
 </md-input-container>
 
-<md-radio-group ng-model="petSaveController.pet.Species">
+<br/>
+<div style="text-align:center"> Species </div>
+<br />
+<md-radio-group layout="row" ng-model="petSaveController.pet.Species">
     <md-radio-button value="1"> DOG </md-radio-button>
     <md-radio-button value="2"> CAT </md-radio-button>
     <md-radio-button value="3"> RODENT </md-radio-button>
@@ -50,34 +65,68 @@
     <md-radio-button value="9"> OTHER </md-radio-button>
 </md-radio-group>
 
-
-
-<md-radio-group ng-model="petSaveController.pet.PureBreed">
-    <md-radio-button value="true"> Pure Breed </md-radio-button>
-    <md-radio-button value="false"> Mixed Breed </md-radio-button>
-</md-radio-group>
-
-
-<md-input-container>
-    <label>Breed</label>
-    <input ng-model="petSaveController.pet.Breed">
-</md-input-container>
-
-
+<br/>
 <br />
-<input ng-model="petSaveController.pet.MainColour" />
+<div style="text-align:center"> Pure Breed </div>
 <br />
-<input ng-model="petSaveController.pet.FurType" />
-<br />
-<input ng-model="petSaveController.pet.Size" />
-<br />
-
-<div layout-gt-xs="row">
-    <div flex-gt-xs>
-        <h4>Will be used for date</h4>
-        <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-    </div>
+<div style="text-align:center">
+    <md-radio-group layout="row" ng-model="petSaveController.pet.PureBreed">
+        <md-radio-button value="true"> Yes </md-radio-button>
+        <md-radio-button value="false"> No </md-radio-button>
+    </md-radio-group>
 </div>
-   
 
-<md-button ng-click="petSaveController.save()" class="md-raised">ADD PET</md-button>
+
+    <md-input-container>
+        <label>Breed</label>
+        <input ng-model="petSaveController.pet.Breed">
+    </md-input-container>
+
+    <br />
+    <div style="text-align:center"> Colour </div>
+    <br />
+
+    <md-radio-group layout="row" ng-model="petSaveController.pet.MainColour">
+        <md-radio-button value="1"> WHITE </md-radio-button>
+        <md-radio-button value="2"> BLACK </md-radio-button>
+        <md-radio-button value="3"> BROWN </md-radio-button>
+        <md-radio-button value="4"> RED </md-radio-button>
+        <md-radio-button value="5"> GRAY </md-radio-button>
+        <md-radio-button value="6"> CREAM </md-radio-button>
+        <md-radio-button value="7"> FAWN </md-radio-button>
+        <md-radio-button value="9"> BLUE </md-radio-button>
+    </md-radio-group>
+
+
+    <br />
+    <div style="text-align:center"> Fur </div>
+    <br />
+    <md-radio-group layout="row" ng-model="petSaveController.pet.FurType">
+        <md-radio-button value="1"> SMOOTH </md-radio-button>
+        <md-radio-button value="2"> WHIRE </md-radio-button>
+        <md-radio-button value="3"> LONG </md-radio-button>
+        <md-radio-button value="4"> CURLY </md-radio-button>
+    </md-radio-group>
+
+    <br />
+    <div style="text-align:center"> Size </div>
+    <br />
+    <div style="text-align:center">
+        <md-radio-group layout="row" ng-model="petSaveController.pet.Size">
+            <md-radio-button value="1"> NORMAL </md-radio-button>
+            <md-radio-button value="2"> SMALL </md-radio-button>
+            <md-radio-button value="3"> MEDIUM </md-radio-button>
+            <md-radio-button value="4"> LARGE </md-radio-button>
+            <md-radio-button value="5"> EXTRALARGE </md-radio-button>
+            <md-radio-button value="6"> TOY </md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <br />
+    <br />
+    
+
+
+    <div style="text-align:center">
+        <md-button ng-click="petSaveController.save()" class="md-raised">ADD PET</md-button>
+    </div>
