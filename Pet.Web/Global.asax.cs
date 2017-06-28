@@ -18,6 +18,16 @@ namespace Pet.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+#if !DEBUG
+            System.Data.Entity.Database.SetInitializer<Database.PetDataContext>(new System.Data.Entity.MigrateDatabaseToLatestVersion<Database.PetDataContext, Database.Migrations.Configuration>());
+
+            Database.PetDataContext authorsDBContext = new Database.PetDataContext();
+            authorsDBContext.Database.Initialize(true);
+
+            System.Data.Entity.Database.SetInitializer<Database.PetDataContext>(null);
+#endif
         }
     }
 }
