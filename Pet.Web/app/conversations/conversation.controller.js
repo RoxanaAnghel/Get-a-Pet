@@ -31,6 +31,7 @@
             conversationsService.getConversation($routeParams.conversationId).
                 then(function (result) {
                     vm.conversation = result.data;
+
                 })
         }
 
