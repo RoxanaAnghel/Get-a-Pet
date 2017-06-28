@@ -104,10 +104,10 @@ namespace Pet.Services.Conversations
                     Database.Entities.Pet pet = unitOfWork.PetRepository.GetByID(petId);
                     UserDetails petOwner = unitOfWork.UserDetailsRepository.GetByID(pet.OwnerID);
                     UserDetails user = unitOfWork.UserDetailsRepository.GetByID(userId);
-                    Database.Entities.Conversation conversation = new Database.Entities.Conversation() { ID = Guid.NewGuid(), PetID = petId, PetOwnerId = pet.OwnerID, PetImagineUrl = pet.ImageUrl, FromID = userId };
-                    unitOfWork.ConversationRepository.Create(conversation);
+                    Database.Entities.Conversation dbConversation = new Database.Entities.Conversation() { ID = Guid.NewGuid(), PetID = petId, PetOwnerId = pet.OwnerID, PetImagineUrl = pet.ImageUrl, FromID = userId };
+                    unitOfWork.ConversationRepository.Create(dbConversation);
                     unitOfWork.Save();
-                    return conversation;
+                    return dbConversation;
                 }
                 return unitOfWork.ConversationRepository.GetConversationBetween(userId, petId);
             }

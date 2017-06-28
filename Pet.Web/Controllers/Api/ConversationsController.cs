@@ -26,11 +26,11 @@ namespace Pet.Web.Controllers.Api
         }
 
 
-        [Route("userpet")]
+        [Route("for")]
         [HttpGet]
-        public IHttpActionResult GetConversationBetween(Guid userId,Guid petId)
+        public IHttpActionResult GetConversationBetween(Guid petId)
         {
-            return Ok(conversationService.GetConversationBeetwen(userId, petId));
+            return Ok(conversationService.GetConversationBeetwen(new Guid(User.Identity.GetUserId()),petId));
         }
 
         [Route("user")]

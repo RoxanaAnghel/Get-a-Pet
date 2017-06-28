@@ -32,5 +32,12 @@
                 url: '/api/conversations/' + conversationId
             });
         }
+
+        function getConversationWith(petId) {
+            return $http({
+                method: 'GET',
+                url: 'api/conversations/for/' + petId
+            });
+        }
     }
 })();
