@@ -39,32 +39,14 @@
 
             <md-list-item class="md-3-line" ng-repeat="message in conversationController.messages" >
                  
-
-                @*if recived*@
-                <div ng-if="message.SentBy == conversationController.conversation.WithID">
+                
                     <img ng-src="{{conversationController.conversation.WithImagineUrl}}" class="md-avatar" alt="" />
                     <div class="md-list-item-text" layout="column">
                         <h3>{{ message.ID }}</h3>
                         <h4>{{ message.Text }}</h4>
                         <p>{{ message.SentDate }}</p>
                     </div>
-                    @*about <img ng-src="{{item.PetImagineUrl}}" class="md-avatar" />*@
-                </div>
-
-
-                @*if sent*@
-                @*<div ng-if="message.SentBy==conversationController.conversation.YourId">
-                    
-                    <div class="md-list-item-text" layout="column">
-                        <h3>{{ message.ID }}</h3>
-                        <h4>{{ message.Text }}</h4>
-                        <p>{{ message.SentDate }}</p>
-                    </div>
-                    <img ng-src="{{conversationController.conversation.YourImagineUrl}}" class="md-avatar" alt="" />
-                </div>*@
-
-            </md-list-item>
-            @*<md-divider></md-divider>*@
+                
 
 
 
