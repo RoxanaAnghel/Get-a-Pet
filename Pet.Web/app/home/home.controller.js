@@ -12,7 +12,36 @@
         var vm = this;
         vm.pets = [];
         vm.getPetProfile = getPetProfile;
+        vm.search = false;
+        vm.showInput = false;
+        vm.showSearch = showSearch;
+        vm.clearSearch = clearSearch;
+        vm.hideSearch = hideSearch;
+
+        vm.searchOptions = {
+            Species: 0,
+            Color: 0,
+            PureBreed: false,
+            Breed: '',
+            Size: 0,
+            Fur: 0
+        };
+
         activate();
+
+        function hideSearch() {
+            vm.showInput = false;
+        }
+
+        function showSearch() {
+            vm.search = true;
+            vm.showInput = true;
+        }
+
+        function clearSearch() {
+            vm.search = false;
+            vm.showInput = false;
+        }
 
         function getAllPets() {
             myPetsService.getAllPets()
