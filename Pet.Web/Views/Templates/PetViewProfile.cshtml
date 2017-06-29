@@ -2,13 +2,16 @@
     .logo-colour {
         color: #88cc00;
     }
+    md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+        background-color: #88cc00;
+    }
 </style>
 
 
 <md-dialog aria-label="Pet Profile">
     <form>
         <md-toolbar>
-            <div class="md-toolbar-tools logo-colour">
+            <div class="md-toolbar-tools">
                 <h2>{{PetViewController.pet.Name}}</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" >

@@ -11,6 +11,7 @@
 
         this.userConversations = userConversations;
         this.getConversation = getConversation;
+        this.getConversationWith = getConversationWith;
 
         function userConversations() {
             return $http({
@@ -36,7 +37,7 @@
         function getConversationWith(petId) {
             return $http({
                 method: 'GET',
-                url: 'api/conversations/for/' + petId
+                url: '/api/conversations/' + petId
             });
         }
     }

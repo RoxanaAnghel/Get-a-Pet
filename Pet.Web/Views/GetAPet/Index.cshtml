@@ -3,6 +3,18 @@
     Layout = null;
 }
 @using Microsoft.AspNet.Identity
+
+
+<style>
+    .md-button.md-default-theme.md-accent, .md-button.md-accent {
+        color: #88cc00;
+    }
+    md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
+        color: #88cc00;
+        background: #88cc00;
+    }
+</style>
+
 <!DOCTYPE html>
 <html ng-app="getAPet">
 <head>
@@ -16,9 +28,8 @@
 </head>
 <body>
 
-
-
-    @*<div ng-controller="AppCtrl" ng-cloak>*@
+    @if (Request.IsAuthenticated)
+    {
         <md-content class="md-padding">
             <md-nav-bar md-selected-nav-item="currentNavItem"
                         nav-bar-aria-label="navigation links">
@@ -28,27 +39,30 @@
                 <md-nav-item md-nav-href="#userconversations">Messages</md-nav-item>
                 <md-nav-item md-nav-href="#profile">Profile</md-nav-item>
 
-
             </md-nav-bar>
+
             <div class="ext-content">
             </div>
+
         </md-content>
-    @*</div>*@
+        
+    }
+    
+    
+    <div class="container body-content">
+        <div ng-view>
 
-
-
-        <div class="container body-content">
-            <div ng-view>
-
-            </div>
-
-            <footer style="clear:both">
-                <hr />
-                <p>&copy; @DateTime.Now.Year - Get a Pet</p>
-            </footer>
         </div>
-        @Scripts.Render("~/angular")
-        @Scripts.Render("~/module")
-        @Scripts.Render("~/AngularControllers")
+
+        <footer style="clear:both">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Get a Pet</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/angular")
+    @Scripts.Render("~/module")
+    @Scripts.Render("~/AngularControllers")
+
 </body>
 </html>

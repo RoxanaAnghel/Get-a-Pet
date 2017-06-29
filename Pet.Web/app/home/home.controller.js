@@ -5,9 +5,9 @@
         .module('getAPet')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['myPetsService', '$scope', '$mdDialog'];
+    HomeController.$inject = ['myPetsService', '$scope', '$mdDialog','conversationsService'];
 
-    function HomeController(myPetsService, scope, $mdDialog) {
+    function HomeController(myPetsService, scope, $mdDialog, conversationsService) {
 
         var vm = this;
         vm.pets = [];
@@ -17,7 +17,7 @@
         vm.showSearch = showSearch;
         vm.clearSearch = clearSearch;
         vm.hideSearch = hideSearch;
-
+        vm.getConversation = getConversation;
         vm.petProfile={}
 
         vm.searchOptions = {
@@ -71,6 +71,14 @@
                 clickOutsideToClose: true
             });
 
+        }
+
+        function getConversation(petId) {
+            conversationsService.getConversationWith(petId)
+                .then(function (data) {
+                    var id = data.result.ID;
+                    location.path("userconversation/:" + id);
+                });
         }
 
         

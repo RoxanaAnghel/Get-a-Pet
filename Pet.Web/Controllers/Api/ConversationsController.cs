@@ -26,7 +26,7 @@ namespace Pet.Web.Controllers.Api
         }
 
 
-        [Route("for")]
+        [Route("{petId}")]
         [HttpGet]
         public IHttpActionResult GetConversationBetween(Guid petId)
         {
