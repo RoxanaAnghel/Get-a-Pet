@@ -18,6 +18,8 @@
         vm.clearSearch = clearSearch;
         vm.hideSearch = hideSearch;
 
+        vm.petProfile={}
+
         vm.searchOptions = {
             Species: 0,
             Color: 0,
@@ -54,22 +56,23 @@
             getAllPets();
         }
 
-        function getPetProfile(ev,petId) {
+        function getPetProfile(ev, pet) {
+            vm.petProfile = pet;
             console.log("in pet profile get");
             $mdDialog.show({
-                controller: PetProfileViewController,
-                controllerAs: PetProfileViewController,
-                templateUrl: window.location.origin + "/Templates/PetViewProfile.cshtml",
+                controller: "PetViewController",
+                controllerAs: 'PetViewController',
+                templateUrl: window.location.origin + "/Templates/PetViewProfile",
                 parent: angular.element(document.body),
                 targetEvent: ev,
+                locals: {
+                    pet: pet
+                },
                 clickOutsideToClose: true
-            })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
+            });
 
         }
+
+        
     }
 })();

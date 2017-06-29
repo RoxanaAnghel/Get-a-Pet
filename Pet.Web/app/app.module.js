@@ -48,6 +48,11 @@
                     controller: "conversationController",
                     controllerAs: "conversationController"
                 })
+                .when("/petProfile", {
+                    templateUrl: window.location.origin + "/Templates/PetViewProfile",
+                    controller: "HomeController",
+                    controllerAs: "homeController"
+                })
                 .otherwise({ redirectTo: "/home" });
             $mdIconProvider
                 .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
