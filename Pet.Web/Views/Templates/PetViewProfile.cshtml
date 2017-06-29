@@ -1,8 +1,14 @@
-﻿
+﻿<style>
+    .logo-colour {
+        color: #88cc00;
+    }
+</style>
+
+
 <md-dialog aria-label="Pet Profile">
     <form>
         <md-toolbar>
-            <div class="md-toolbar-tools">
+            <div class="md-toolbar-tools logo-colour">
                 <h2>{{PetViewController.pet.Name}}</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" >
@@ -16,8 +22,15 @@
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">{{PetViewController.pet.Name}} </span>
-                        <span class="md-subhead">{{PetViewController.pet.Description}}</span>
+                        <span class="md-headline">Name: {{PetViewController.pet.Name}} </span>
+                        <span class="md-subhead">Description: {{PetViewController.pet.Description}}</span>
+                        <span class="md-subhead">Location: {{PetViewController.pet.Location}}</span>
+                        <span class="md-subhead">Species: {{PetViewController.pet.Species}}</span>
+                        <span class="md-subhead">Breed: {{PetViewController.pet.Breed}}</span>
+                        <span class="md-subhead">Color: {{PetViewController.pet.MainColour}}</span>
+                        <span class="md-subhead">Fur: {{PetViewController.pet.FurType}}</span>
+                        <span class="md-subhead">Size: {{PetViewController.pet.Size}}</span>
+
                     </md-card-title-text>
                     <md-card-title-media>
                         <div class="md-media-lg card-media">
@@ -25,10 +38,6 @@
                         </div>
                     </md-card-title-media>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Edit Profile</md-button>
-                    <md-button>Settings</md-button>
-                </md-card-actions>
             </md-card>
         </md-dialog-content>
 
