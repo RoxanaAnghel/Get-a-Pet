@@ -23,12 +23,14 @@ namespace Pet.Services.Conversations
 
                 Database.Entities.Conversation[] dbConversations = unitOfWork.ConversationRepository.GetAllFor(userId);
 
-                Guid[] otherUserIds = dbConversations.SelectMany(x => new Guid[2] { x.FromID, x.PetOwnerId }).Distinct().Where(x => x != userId).ToArray();
-                Guid[] petIds = dbConversations.Select(x => x.PetID).ToArray();
+                Guid[] otherUserIds = dbConversations.SelectMany(x => new Guid[2] { x.FromID, x.PetOwnerId }).Distinct().ToArray();
+                Guid[] petIds = dbConversations.Select(x => x.PetID).Distinct().ToArray();
 
                 Database.Entities.UserDetails[] otherUsers = unitOfWork.UserDetailsRepository.GetByIds(otherUserIds);
 
                 Database.Entities.Pet[] pets = unitOfWork.PetRepository.GetByIds(petIds);
+
+                UserDetails yourDetails = otherUsers.First(x => x.ID == userId);
 
                 foreach (Database.Entities.Conversation dbConversation in dbConversations)
                 {
@@ -46,8 +48,8 @@ namespace Pet.Services.Conversations
                             ID = dbConversation.ID,
                             PetID = dbConversation.PetID,
                             PetImagineUrl = pet.ImageUrl,
-                            YourId = dbConversation.PetOwnerId,
-                            YourImagineUrl = dbConversation.PetOwnerImagineUrl,
+                            YourId = userId,
+                            YourImagineUrl = yourDetails.ImagineUrl,
                             Active = dbConversation.Status
                         });
                     }
