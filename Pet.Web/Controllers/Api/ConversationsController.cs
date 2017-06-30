@@ -19,25 +19,25 @@ namespace Pet.Web.Controllers.Api
         }
 
         [HttpGet]
+        public IHttpActionResult GetConversations(Guid? petId = null)
+        {
+            Guid userId = new Guid(User.Identity.GetUserId());
+
+            if (petId.HasValue)
+            {
+                return Ok(conversationService.GetConversationBeetwen(userId, petId.Value));
+            }
+            else
+            {
+                return Ok(conversationService.GetAllForUser(userId));
+            }
+        }
+
+        [HttpGet]
         public IHttpActionResult GetConversation(Guid id)
         {
             Guid current = new Guid(User.Identity.GetUserId());
             return Ok(conversationService.GetById_(id,current));
-        }
-
-
-        [Route("{petId}")]
-        [HttpGet]
-        public IHttpActionResult GetConversationBetween(Guid petId)
-        {
-            return Ok(conversationService.GetConversationBeetwen(new Guid(User.Identity.GetUserId()),petId));
-        }
-
-        [Route("user")]
-        [HttpGet]
-        public IHttpActionResult GetConversationsFor()
-        {
-            return Ok(conversationService.GetAllForUser(new Guid(User.Identity.GetUserId())));
         }
     }
 }

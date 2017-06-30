@@ -2,10 +2,6 @@
 using Pet.Database;
 using Pet.Services.Messages;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Pet.Web.Controllers.Api
@@ -22,11 +18,9 @@ namespace Pet.Web.Controllers.Api
             messageService = new MessageService(unitOfWorkFactory);
         }
 
-        [Route("{conversationId}")]
         [HttpGet]
         public IHttpActionResult GetMessages(Guid conversationId)
         {
-            Message[] m = messageService.GetMesagesForConversation(conversationId);
             return Ok(messageService.GetMesagesForConversation(conversationId));
         }
 

@@ -10,13 +10,12 @@
     function messagesService($http) {
 
         this.getMessages = getMessages;
-
         this.sendMessage = sendMessage;
 
         function getMessages(conversationId) {
             return $http({
                 method: 'GET',
-                url: '/api/messages/' + conversationId
+                url: '/api/messages?conversationId=' + conversationId
             });
         }
 

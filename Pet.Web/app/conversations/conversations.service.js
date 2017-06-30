@@ -16,14 +16,14 @@
         function userConversations() {
             return $http({
                 method: 'GET',
-                url: '/api/conversations/user'
+                url: '/api/conversations'
             });
         }
 
-        function getConversationMessages(conversationId) {
+        function getConversationWith(petId) {
             return $http({
                 method: 'GET',
-                url: '/api/conversations/messages/' + conversationId
+                url: '/api/conversations?petId=' + petId
             });
         }
 
@@ -34,10 +34,10 @@
             });
         }
 
-        function getConversationWith(petId) {
+        function getConversationMessages(conversationId) {
             return $http({
                 method: 'GET',
-                url: '/api/conversations/' + petId
+                url: '/api/messages?conversationId=' + conversationId
             });
         }
     }

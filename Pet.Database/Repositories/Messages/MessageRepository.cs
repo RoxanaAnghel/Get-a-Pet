@@ -16,7 +16,7 @@ namespace Pet.Database.Repositories.Messages
 
         public Message[] GetAllForConversation(Guid conversationId)
         {
-            return dbSet.Where(m => m.ConversationId == conversationId).ToArray();
+            return dbSet.Where(m => m.ConversationId == conversationId).OrderByDescending(m => m.SentDate).ToArray();
         }
 
         public Message[] GetAllMessagesForUser(Guid userId)

@@ -5,9 +5,9 @@
         .module('getAPet')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['myPetsService', '$scope', '$mdDialog','conversationsService'];
+    HomeController.$inject = ['myPetsService', '$scope', '$mdDialog','conversationsService','$location'];
 
-    function HomeController(myPetsService, scope, $mdDialog, conversationsService) {
+    function HomeController(myPetsService, scope, $mdDialog, conversationsService,location) {
 
         var vm = this;
         vm.pets = [];
@@ -75,9 +75,9 @@
 
         function getConversation(petId) {
             conversationsService.getConversationWith(petId)
-                .then(function (data) {
-                    var id = data.result.ID;
-                    location.path("userconversation/:" + id);
+                .then(function (result) {
+                    var id = result.data.ID;
+                    location.path("userconversation/" + id);
                 });
         }
 
