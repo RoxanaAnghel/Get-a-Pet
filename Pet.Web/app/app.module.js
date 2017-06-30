@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('getAPet', ['ngRoute', 'ngMaterial'])
+        .module('getAPet', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngFileUpload'])
         .factory('httpRequestInterceptor', function () {
             return {
                 request: function (config) {
@@ -53,7 +53,13 @@
                     controller: "HomeController",
                     controllerAs: "homeController"
                 })
+                .when("/uploads", {
+                    templateUrl: window.location.origin + "/Templates/Uploads",
+                    controller: "UploadsController",
+                    controllerAs: "uploadsController"
+                })
                 .otherwise({ redirectTo: "/home" });
+
             $mdIconProvider
                 .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
         });

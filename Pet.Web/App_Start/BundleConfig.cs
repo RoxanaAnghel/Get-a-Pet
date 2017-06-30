@@ -73,6 +73,11 @@ namespace Pet.Web
             controllerBundle.Include("~/app/conversations/conversations.service.js");
             controllerBundle.Include("~/app/conversations/messages.service.js");
             controllerBundle.Include("~/app/myPets/pet.view.controller.js");
+            
+            controllerBundle.Include("~/app/uploads/uploads.controller.js");
+            controllerBundle.Include("~/app/uploads/uploads.service.js");
+            controllerBundle.Include("~/app/uploads/loading-spinner.js");
+
             bundles.Add(controllerBundle);
         }
     }

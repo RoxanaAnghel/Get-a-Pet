@@ -43,5 +43,10 @@ namespace Pet.Web.Controllers
         {
             return PartialView("~/Views/Templates/PetViewProfile.cshtml");
         }
+
+        public ActionResult Uploads()
+        {
+            return PartialView("~/Views/Templates/Uploads.cshtml");
+        }
     }
 }
