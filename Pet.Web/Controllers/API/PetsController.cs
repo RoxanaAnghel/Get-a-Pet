@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace Pet.Web.Controllers.API
 {
+    [Authorize]
     [RoutePrefix("api/pets")]
     public class PetsController : ApiController
     {
@@ -19,6 +20,7 @@ namespace Pet.Web.Controllers.API
             petService = new PetService(unitOfWorkFactory);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IHttpActionResult GetAllPets(Guid? ownerId = null)
         {

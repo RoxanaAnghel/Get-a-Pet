@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace Pet.Web.Controllers.Api
 {
+    [Authorize]
     public class UploadsController : ApiController
     {
         private readonly string workingFolder = HttpRuntime.AppDomainAppPath + @"Uploads";

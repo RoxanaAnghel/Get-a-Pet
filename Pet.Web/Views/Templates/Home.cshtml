@@ -50,12 +50,17 @@
 
 
 <h4>Welcome to Get-a-Pet
-    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float:right" ng-click="homeController.showSearch()">
-        <i class="material-icons logo-colour">search</i>
-    </button>
-    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float:right" ng-click="homeController.clearSearch()">
-        <i class="material-icons logo-colour">clear</i>
-    </button> 
+
+    @if (Request.IsAuthenticated)
+    {
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float:right" ng-click="homeController.showSearch()">
+            <i class="material-icons logo-colour">search</i>
+        </button>
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="float:right" ng-click="homeController.clearSearch()">
+            <i class="material-icons logo-colour">clear</i>
+        </button>
+    }
+    
     
 </h4>
 <h5>

@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace Pet.Web.Controllers.Api
 {
+    [Authorize]
     [RoutePrefix("api/messages")]
     public class MessagesController : ApiController
     {

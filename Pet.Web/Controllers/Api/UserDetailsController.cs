@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace Pet.Web.Controllers.Api
 {
+    [Authorize]
     [RoutePrefix("api/userdetails")]
     public class UserDetailsController : ApiController
     {
