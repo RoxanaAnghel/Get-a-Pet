@@ -39,10 +39,8 @@ namespace Pet.Web.Controllers.Api
         }
 
 
-        public IHttpActionResult Add()
+        public async Task<IHttpActionResult> Add()
         {
-
-            // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent("form-data"))
             {
                 return BadRequest("Unsupported media type");
@@ -51,12 +49,7 @@ namespace Pet.Web.Controllers.Api
             {
                 var provider = new CustomMultipartFormDataStreamProvider(workingFolder);
 
-
-                //await Request.Content.ReadAsMultipartAsync(provider);
-                Request.Content.ReadAsMultipartAsync(provider);
-
-
-                //Task.Run(async () => await Request.Content.ReadAsMultipartAsync(provider)).Wait();
+                await Request.Content.ReadAsMultipartAsync(provider);
 
                 var photos = new List<PhotoViewModel>();
 
@@ -92,12 +85,14 @@ namespace Pet.Web.Controllers.Api
 
             public override string GetLocalFileName(HttpContentHeaders headers)
             {
-                //Make the file name URL safe and then use it & is the only disallowed url character allowed in a windows filename
-                var name = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName)
-                  ? headers.ContentDisposition.FileName
-                  : "NoName";
+                if (string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName))
+                    throw new NotSupportedException();
 
-                return name.Trim('"').Replace("&", "and");
+                string fileName = headers.ContentDisposition.FileName;
+
+                string fileNameExtension = ".jpg";
+
+                return Guid.NewGuid().ToString() + fileNameExtension;
             }
         }
 
@@ -108,6 +103,5 @@ namespace Pet.Web.Controllers.Api
             public DateTime Modified { get; set; }
             public long Size { get; set; }
         }
-
     }
 }

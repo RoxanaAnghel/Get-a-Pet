@@ -55,8 +55,6 @@
                 console.log("Error status: " + err.status);
                 vm.spinner.active = false;
             });
-
-            $window.location.reload();
         }
 
         function removePhoto(photo) {

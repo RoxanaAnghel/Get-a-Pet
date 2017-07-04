@@ -5,28 +5,30 @@
         .module('getAPet')
         .controller('PetSaveController', PetSaveController);
 
-    PetSaveController.$inject = ['myPetsService', '$scope', '$routeParams','$location'];
+    PetSaveController.$inject = ['myPetsService', '$scope', '$routeParams', '$location', 'uploadsService','Upload'];
 
-    function PetSaveController(myPetsService, scope, $routeParams, location) {
-
+    function PetSaveController(myPetsService, scope, $routeParams, location, fileService,Upload) {
+        var apiUrl = '/api/uploads';
         var vm = this;
         vm.save = save;
         vm.pet = {
 
             Name: "Ola",
-            Location:"",
-            ImageUrl:"",
-            Description:"",
-            Species:0,
-            Breed:"",
-            PureBreed:false,
-            MainColour:0,
-            FurType:0,
-            Size:0,
-            Adopted:false,
-            BirthDate:false
+            Location: "",
+            ImageUrl: "333865f7-6ce4-4727-a992-802d08656fd5.jpg",
+            Description: "",
+            Species: 0,
+            Breed: "",
+            PureBreed: false,
+            MainColour: 0,
+            FurType: 0,
+            Size: 0,
+            Adopted: false,
+            BirthDate: false
         };
 
+        vm.file = [];
+        vm.uploadImagine = uploadImagine;
         vm.species = [{ i: 1, v: "DOG" },
         { i: 2, v: "CAT" },
         { i: 2, v: "RODENT" },
@@ -50,6 +52,20 @@
         }
 
         function cancel() {
+
+        }
+
+        function uploadImagine(file) {
+            console.log("in file");
+            Upload.upload({
+                url: apiUrl,
+                data: { file: file }
+            })
+                .then(function (response) {
+                    vm.pet.ImageUrl = "/uploads/"+response.data.Photos[0].Name;
+                }, function (err) {
+                    console.log("Error status: " + err.status);
+                });
 
         }
 
