@@ -16,7 +16,7 @@
         vm.goToSave = goToSave;
         vm.goToEdit = goToEdit;
         vm.showDeleteConfirm = showDeleteConfirm;
-
+        vm.getConversations = getConversations;
         activate();
 
 
@@ -70,6 +70,10 @@
 
         function activate() {
             getAllPets();
+        }
+
+        function getConversations(petId) {
+            console.log("get conversations");
         }
     }
 })();

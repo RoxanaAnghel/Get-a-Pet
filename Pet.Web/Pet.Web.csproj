@@ -207,6 +207,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\myPets\pet.page.controller.js" />
     <Content Include="app\uploads\loading-spinner.html" />
     <Content Include="app\uploads\loading-spinner.js" />
     <Content Include="app\uploads\uploads.controller.js" />
@@ -367,8 +368,11 @@
     <Content Include="Views\Templates\Conversation.cshtml" />
     <Content Include="Views\Templates\PetViewProfile.cshtml" />
     <Content Include="Views\Templates\Uploads.cshtml" />
+    <Content Include="Views\Templates\Login.cshtml" />
+    <Content Include="Views\Templates\PetPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\login\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Template\" />
   </ItemGroup>

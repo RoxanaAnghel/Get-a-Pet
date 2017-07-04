@@ -39,5 +39,13 @@ namespace Pet.Web.Controllers.Api
             Guid current = new Guid(User.Identity.GetUserId());
             return Ok(conversationService.GetById_(id,current));
         }
+
+        [Route("pet")]
+        [HttpGet]
+        public IHttpActionResult GetConversationForPet(Guid petId)
+        {
+            Guid user = new Guid(User.Identity.GetUserId());
+            return Ok(conversationService.GetAllForPet(petId, user));
+        }
     }
 }

@@ -38,8 +38,12 @@
             <div class="ext-content">
             </div>
         </md-content>
+        
     }
-    
+    @if (!Request.IsAuthenticated)
+    {
+        @Html.Partial("_LoginPartial")
+    }
     <div class="container body-content">
         <div ng-view>
         </div>

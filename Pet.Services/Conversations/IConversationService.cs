@@ -14,6 +14,7 @@ namespace Pet.Services.Conversations
 
         Conversation[] GetAllForUser(Guid userId);
         Conversation GetById_(Guid conversationId,Guid current);
+        Conversation[] GetAllForPet(Guid petId,Guid ownerId);
     }
 
 

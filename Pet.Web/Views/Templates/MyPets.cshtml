@@ -34,9 +34,9 @@
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     <i class="material-icons logo-colour">pets</i>
                 </a>
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="myPetsController.getConversations(pet.ID)">
                     <i class="material-icons logo-colour">mail_outline</i>
-                </a>
+                </button>
                 <a ng-click="myPetsController.goToEdit(pet.ID)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     <i class="material-icons logo-colour">edit</i>
                 </a>

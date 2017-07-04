@@ -34,6 +34,13 @@
             });
         }
 
+        function getConversationsAbout(petId) {
+            return $http({
+                method: 'GET',
+                url: '/api/conversations/pet?petId=' + petId
+            });
+        }
+
         function getConversationMessages(conversationId) {
             return $http({
                 method: 'GET',

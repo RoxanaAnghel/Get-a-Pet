@@ -15,6 +15,13 @@ namespace Pet.Services.Conversations
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
+        public Conversation[] GetAllForPet(Guid petId, Guid ownerId)
+        {
+            Conversation[] conversations = GetAllForUser(ownerId).Where(c => c.PetID == petId).ToArray();
+            return conversations;
+            
+        }
+
         public Conversation[] GetAllForUser(Guid userId)
         {
             using (IUnitOfWork unitOfWork = unitOfWorkFactory.Create())
@@ -50,7 +57,8 @@ namespace Pet.Services.Conversations
                             PetImagineUrl = pet.ImageUrl,
                             YourId = userId,
                             YourImagineUrl = yourDetails.ImagineUrl,
-                            Active = dbConversation.Status
+                            Active = dbConversation.Status,
+                            WithName = otherUser.Name
                         });
                     }
                 }
