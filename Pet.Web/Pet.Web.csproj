@@ -373,6 +373,7 @@
   <ItemGroup>
     <Folder Include="app\login\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\Template\" />
   </ItemGroup>
   <ItemGroup>
